@@ -1,0 +1,343 @@
+.. _django-documentation:
+
+=============
+مستندات جنگو
+=============
+
+.. rubric:: هر آنچه باید در مورد جنگو بدانید.
+
+
+.. _first-steps:
+
+اولین گامها
+============
+
+آیا در جنگو و یا برنامه نویسی تازه وارد هستید؟ محل شروع اینجاست!
+
+* **شروع از صفر:**
+  :doc:`بررسی اجمالی  <intro/overview>` |
+  :doc:`نصب و راه اندازی <intro/install>`
+
+* **آموزش:**
+  :doc:`بخش ۱: Requests and responses <intro/tutorial01>` |
+  :doc:`بخش ۲: Models and admin site <intro/tutorial02>` |
+  :doc:`بخش ۳: Views and templates <intro/tutorial03>` |
+  :doc:`بخش ۴: Forms and generic views <intro/tutorial04>` |
+  :doc:`بخش ۵: Testing <intro/tutorial05>` |
+  :doc:`بخش ۶: Static files <intro/tutorial06>` |
+  :doc:`بخش ۷: Customizing the admin site <intro/tutorial07>`
+
+* **آموزش های پیشرفته:**
+  :doc:`چگونه برنامه هایی با قابلیت استفاده مجدد بنویسیم <intro/reusable-apps>` |
+  :doc:`نوشتن تغیرات برای اصلاح و یا بهبود جنگو <intro/contributing>`
+
+
+.. _getting-help:
+
+دریافت کمک
+===========
+
+مشکل یا سوالی وجود دارد؟ ما میخواهیم کمک کنیم!
+
+* به :doc:`سوالات متداول <faq/index>` نگاهی بیندازید -- این بخش برای بسیاری از سوالات رایج پاسخ دارد.  
+
+* به دنبال اطلاعات خاصی هستید؟ از :ref:`فهرست کلی <genindex>` ، :ref:`فهرست ماژول ها <modindex>` و یا از :doc:`فهرست جامع و کامل طبقه بندی شده <contents>` استفاده کنید.
+
+* هنوز به جواب نرسیده اید؟ برای گرفتن اطلاعات در مورد دریافت پشتیبانی و پرسیدن سوال از انجمن به :doc:`سوالات متداول: دریافت کمک <faq/help>` مراجعه کنید.
+
+* اشکالات و باگ های جنگو را در `ticket tracker <https://docs.djangoproject.com>`__ به ما گزارش دهید.
+
+
+.. _how-the-documentation-is-organized:
+
+نحوه سازماندهی مستندات 
+========================
+
+جنگو مستندات زیادی دارد. یک دید کلی و سطح بالا از نحوه سازماندهی آن میتواند به شما کمک کند تا بدانید کجا باید به دنبال موارد خاص باشید.  
+
+* :doc:`آموزش ها </intro/index>` از طریق یک سری مراحل برای ساخت یک وب اپلیکیشن دست شمارا میگیرند و به شما کمک میکنند. اگر در جنگو و یا توسعه وب اپلیکیشن ها تازه وارد هستید از اینجا شروع کنید. همچنین نگاهی به :ref:`first-steps` بیندازید. 
+
+* :doc:`راهنماهای موضوعات </topics/index>` شامل بحث هایی در خصوص موضوعات و مفاهیم کلیدی در سطح نسبتا بالا  هستند و اطلاعات که توضیحات مفید در مورد آنها را ارائه میدهند. 
+
+* :doc:`راهنماهای مرجع </ref/index>` حاوی مرجع فنی و تکنیکی برای API ها و مباحث و جنبه های دیگر در ساختارهای جنگو میباشند. آنها نحوه عملکرد و استفاده از جنگو را توضیح میدهند ، اما فرض میشود که شما درک و دانش اولیه ای از مفاهیم کلیدی جنگو دارید.
+
+* :doc:`راهنماهای "چطور" </howto/index>` به اصطلاح دستورهای پخت میباشند. آنها شمارا از طریق راه ها و مراحل مربوط به حل مشکلات کلیدی و زمان و محل استفاده آن ها در حالت  ها و شرایط های مختلف راهنمایی میکنند. این بخش از :doc:`آموزش ها </intro/index>` پیشرفته تر هستند و فرض میشود که شما دانشی از چگونگی کار جنگو دارید.
+
+
+The model layer
+===============
+Django provides an abstraction layer (the "models") for structuring and
+manipulating the data of your Web application. Learn more about it below:
+
+* **Models:**
+  :doc:`Introduction to models <topics/db/models>` |
+  :doc:`Field types <ref/models/fields>` |
+  :doc:`Indexes <ref/models/indexes>` |
+  :doc:`Meta options <ref/models/options>` |
+  :doc:`Model class <ref/models/class>`
+
+* **QuerySets:**
+  :doc:`Making queries <topics/db/queries>` |
+  :doc:`QuerySet method reference <ref/models/querysets>` |
+  :doc:`Lookup expressions <ref/models/lookups>`
+
+* **Model instances:**
+  :doc:`Instance methods <ref/models/instances>` |
+  :doc:`Accessing related objects <ref/models/relations>`
+
+* **Migrations:**
+  :doc:`Introduction to Migrations<topics/migrations>` |
+  :doc:`Operations reference <ref/migration-operations>` |
+  :doc:`SchemaEditor <ref/schema-editor>` |
+  :doc:`Writing migrations <howto/writing-migrations>`
+
+* **Advanced:**
+  :doc:`Managers <topics/db/managers>` |
+  :doc:`Raw SQL <topics/db/sql>` |
+  :doc:`Transactions <topics/db/transactions>` |
+  :doc:`Aggregation <topics/db/aggregation>` |
+  :doc:`Search <topics/db/search>` |
+  :doc:`Custom fields <howto/custom-model-fields>` |
+  :doc:`Multiple databases <topics/db/multi-db>` |
+  :doc:`Custom lookups <howto/custom-lookups>` |
+  :doc:`Query Expressions <ref/models/expressions>` |
+  :doc:`Conditional Expressions <ref/models/conditional-expressions>` |
+  :doc:`Database Functions <ref/models/database-functions>`
+
+* **Other:**
+  :doc:`Supported databases <ref/databases>` |
+  :doc:`Legacy databases <howto/legacy-databases>` |
+  :doc:`Providing initial data <howto/initial-data>` |
+  :doc:`Optimize database access <topics/db/optimization>` |
+  :doc:`PostgreSQL specific features <ref/contrib/postgres/index>`
+
+The view layer
+==============
+
+Django has the concept of "views" to encapsulate the logic responsible for
+processing a user's request and for returning the response. Find all you need
+to know about views via the links below:
+
+* **The basics:**
+  :doc:`URLconfs <topics/http/urls>` |
+  :doc:`View functions <topics/http/views>` |
+  :doc:`Shortcuts <topics/http/shortcuts>` |
+  :doc:`Decorators <topics/http/decorators>` |
+  :doc:`Asynchronous Support <topics/async>`
+
+* **Reference:**
+  :doc:`Built-in Views <ref/views>` |
+  :doc:`Request/response objects <ref/request-response>` |
+  :doc:`TemplateResponse objects <ref/template-response>`
+
+* **File uploads:**
+  :doc:`Overview <topics/http/file-uploads>` |
+  :doc:`File objects <ref/files/file>` |
+  :doc:`Storage API <ref/files/storage>` |
+  :doc:`Managing files <topics/files>` |
+  :doc:`Custom storage <howto/custom-file-storage>`
+
+* **Class-based views:**
+  :doc:`Overview <topics/class-based-views/index>` |
+  :doc:`Built-in display views <topics/class-based-views/generic-display>` |
+  :doc:`Built-in editing views <topics/class-based-views/generic-editing>` |
+  :doc:`Using mixins <topics/class-based-views/mixins>` |
+  :doc:`API reference <ref/class-based-views/index>` |
+  :doc:`Flattened index<ref/class-based-views/flattened-index>`
+
+* **Advanced:**
+  :doc:`Generating CSV <howto/outputting-csv>` |
+  :doc:`Generating PDF <howto/outputting-pdf>`
+
+* **Middleware:**
+  :doc:`Overview <topics/http/middleware>` |
+  :doc:`Built-in middleware classes <ref/middleware>`
+
+The template layer
+==================
+
+The template layer provides a designer-friendly syntax for rendering the
+information to be presented to the user. Learn how this syntax can be used by
+designers and how it can be extended by programmers:
+
+* **The basics:**
+  :doc:`Overview <topics/templates>`
+
+* **For designers:**
+  :doc:`Language overview <ref/templates/language>` |
+  :doc:`Built-in tags and filters <ref/templates/builtins>` |
+  :doc:`Humanization <ref/contrib/humanize>`
+
+* **For programmers:**
+  :doc:`Template API <ref/templates/api>` |
+  :doc:`Custom tags and filters <howto/custom-template-tags>` |
+  :doc:`Custom template backend <howto/custom-template-backend>`
+
+Forms
+=====
+
+Django provides a rich framework to facilitate the creation of forms and the
+manipulation of form data.
+
+* **The basics:**
+  :doc:`Overview <topics/forms/index>` |
+  :doc:`Form API <ref/forms/api>` |
+  :doc:`Built-in fields <ref/forms/fields>` |
+  :doc:`Built-in widgets <ref/forms/widgets>`
+
+* **Advanced:**
+  :doc:`Forms for models <topics/forms/modelforms>` |
+  :doc:`Integrating media <topics/forms/media>` |
+  :doc:`Formsets <topics/forms/formsets>` |
+  :doc:`Customizing validation <ref/forms/validation>`
+
+The development process
+=======================
+
+Learn about the various components and tools to help you in the development and
+testing of Django applications:
+
+* **Settings:**
+  :doc:`Overview <topics/settings>` |
+  :doc:`Full list of settings <ref/settings>`
+
+* **Applications:**
+  :doc:`Overview <ref/applications>`
+
+* **Exceptions:**
+  :doc:`Overview <ref/exceptions>`
+
+* **django-admin and manage.py:**
+  :doc:`Overview <ref/django-admin>` |
+  :doc:`Adding custom commands <howto/custom-management-commands>`
+
+* **Testing:**
+  :doc:`Introduction <topics/testing/index>` |
+  :doc:`Writing and running tests <topics/testing/overview>` |
+  :doc:`Included testing tools <topics/testing/tools>` |
+  :doc:`Advanced topics <topics/testing/advanced>`
+
+* **Deployment:**
+  :doc:`Overview <howto/deployment/index>` |
+  :doc:`WSGI servers <howto/deployment/wsgi/index>` |
+  :doc:`ASGI servers <howto/deployment/asgi/index>` |
+  :doc:`Deploying static files <howto/static-files/deployment>` |
+  :doc:`Tracking code errors by email <howto/error-reporting>` |
+  :doc:`Deployment checklist <howto/deployment/checklist>`
+
+The admin
+=========
+
+Find all you need to know about the automated admin interface, one of Django's
+most popular features:
+
+* :doc:`Admin site <ref/contrib/admin/index>`
+* :doc:`Admin actions <ref/contrib/admin/actions>`
+* :doc:`Admin documentation generator<ref/contrib/admin/admindocs>`
+
+Security
+========
+
+Security is a topic of paramount importance in the development of Web
+applications and Django provides multiple protection tools and mechanisms:
+
+* :doc:`Security overview <topics/security>`
+* :doc:`Disclosed security issues in Django <releases/security>`
+* :doc:`Clickjacking protection <ref/clickjacking>`
+* :doc:`Cross Site Request Forgery protection <ref/csrf>`
+* :doc:`Cryptographic signing <topics/signing>`
+* :ref:`Security Middleware <security-middleware>`
+
+Internationalization and localization
+=====================================
+
+Django offers a robust internationalization and localization framework to
+assist you in the development of applications for multiple languages and world
+regions:
+
+* :doc:`Overview <topics/i18n/index>` |
+  :doc:`Internationalization <topics/i18n/translation>` |
+  :ref:`Localization <how-to-create-language-files>` |
+  :doc:`Localized Web UI formatting and form input <topics/i18n/formatting>`
+* :doc:`Time zones </topics/i18n/timezones>`
+
+Performance and optimization
+============================
+
+There are a variety of techniques and tools that can help get your code running
+more efficiently - faster, and using fewer system resources.
+
+* :doc:`Performance and optimization overview <topics/performance>`
+
+Geographic framework
+====================
+
+:doc:`GeoDjango <ref/contrib/gis/index>` intends to be a world-class geographic
+Web framework. Its goal is to make it as easy as possible to build GIS Web
+applications and harness the power of spatially enabled data.
+
+Common Web application tools
+============================
+
+Django offers multiple tools commonly needed in the development of Web
+applications:
+
+* **Authentication:**
+  :doc:`Overview <topics/auth/index>` |
+  :doc:`Using the authentication system <topics/auth/default>` |
+  :doc:`Password management <topics/auth/passwords>` |
+  :doc:`Customizing authentication <topics/auth/customizing>` |
+  :doc:`API Reference <ref/contrib/auth>`
+* :doc:`Caching <topics/cache>`
+* :doc:`Logging <topics/logging>`
+* :doc:`Sending emails <topics/email>`
+* :doc:`Syndication feeds (RSS/Atom) <ref/contrib/syndication>`
+* :doc:`Pagination <topics/pagination>`
+* :doc:`Messages framework <ref/contrib/messages>`
+* :doc:`Serialization <topics/serialization>`
+* :doc:`Sessions <topics/http/sessions>`
+* :doc:`Sitemaps <ref/contrib/sitemaps>`
+* :doc:`Static files management <ref/contrib/staticfiles>`
+* :doc:`Data validation <ref/validators>`
+
+Other core functionalities
+==========================
+
+Learn about some other core functionalities of the Django framework:
+
+* :doc:`Conditional content processing <topics/conditional-view-processing>`
+* :doc:`Content types and generic relations <ref/contrib/contenttypes>`
+* :doc:`Flatpages <ref/contrib/flatpages>`
+* :doc:`Redirects <ref/contrib/redirects>`
+* :doc:`Signals <topics/signals>`
+* :doc:`System check framework <topics/checks>`
+* :doc:`The sites framework <ref/contrib/sites>`
+* :doc:`Unicode in Django <ref/unicode>`
+
+The Django open-source project
+==============================
+
+Learn about the development process for the Django project itself and about how
+you can contribute:
+
+* **Community:**
+  :doc:`How to get involved <internals/contributing/index>` |
+  :doc:`The release process <internals/release-process>` |
+  :doc:`Team organization <internals/organization>` |
+  :doc:`The Django source code repository <internals/git>` |
+  :doc:`Security policies <internals/security>` |
+  :doc:`Mailing lists <internals/mailing-lists>`
+
+* **Design philosophies:**
+  :doc:`Overview <misc/design-philosophies>`
+
+* **Documentation:**
+  :doc:`About this documentation <internals/contributing/writing-documentation>`
+
+* **Third-party distributions:**
+  :doc:`Overview <misc/distributions>`
+
+* **Django over time:**
+  :doc:`API stability <misc/api-stability>` |
+  :doc:`Release notes and upgrading instructions <releases/index>` |
+  :doc:`Deprecation Timeline <internals/deprecation>`
