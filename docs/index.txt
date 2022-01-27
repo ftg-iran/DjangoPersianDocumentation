@@ -64,26 +64,32 @@
 * :doc:`راهنماهای "چطور" </howto/index>` به اصطلاح دستورهای پخت میباشند. آنها شمارا از طریق راه ها و مراحل مربوط به حل مشکلات کلیدی و زمان و محل استفاده آن ها در حالت  ها و شرایط های مختلف راهنمایی میکنند. این بخش از :doc:`آموزش ها </intro/index>` پیشرفته تر هستند و فرض میشود که شما دانشی از چگونگی کار جنگو دارید.
 
 
-The model layer
-===============
-Django provides an abstraction layer (the "models") for structuring and
-manipulating the data of your Web application. Learn more about it below:
+.. _the-model-layer:
 
-* **Models:**
-  :doc:`Introduction to models <topics/db/models>` |
-  :doc:`Field types <ref/models/fields>` |
-  :doc:`Indexes <ref/models/indexes>` |
-  :doc:`Meta options <ref/models/options>` |
-  :doc:`Model class <ref/models/class>`
+لایه مدل (موضوعات پیرامون دیتابیس و داده ها که در جنگو مدل نامیده میشود)
+============================================================================
 
-* **QuerySets:**
-  :doc:`Making queries <topics/db/queries>` |
-  :doc:`QuerySet method reference <ref/models/querysets>` |
-  :doc:`Lookup expressions <ref/models/lookups>`
+جنگو لایه ای انتزاعی تحت عنوان "مدل ها (models)" برای ساختاردهی و دستکاری داده های برنامه وب شما ارائه میدهد. در مورد انها بیشتر بدانید:
 
-* **Model instances:**
-  :doc:`Instance methods <ref/models/instances>` |
-  :doc:`Accessing related objects <ref/models/relations>`
+
+* **Models(مدل ها):**
+  :doc:`Introduction to models <topics/db/models>` (آشنایی با مدل ها) |
+  :doc:`Field types <ref/models/fields>` (انواع فیلدها) |
+  :doc:`Indexes <ref/models/indexes>` (ایندکس ها) |
+  :doc:`Meta options <ref/models/options>` (آپشن های متا) |
+  :doc:`Model class <ref/models/class>` (کلاس مدل)
+
+* **QuerySets (کوئری ها):**
+  :doc:`Making queries <topics/db/queries>` (ایجاد کوئری ها) |
+  :doc:`QuerySet method reference <ref/models/querysets>` (مرجع متد کوئری ها) |
+  :doc:`Lookup expressions <ref/models/lookups>` (اصطلاحات جستجو)
+
+* **Model instances (نمونه های مدل):**
+  :doc:`Instance methods <ref/models/instances>` (متدهای نمونه) |
+  :doc:`Accessing related objects <ref/models/relations>` (دسترسی به اشیا مرتبط)
+  
+
+  
 
 * **Migrations:**
   :doc:`Introduction to Migrations<topics/migrations>` |

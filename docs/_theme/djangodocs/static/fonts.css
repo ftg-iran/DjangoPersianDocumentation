@@ -1,0 +1,47 @@
+@font-face {
+    font-family: Vazir;
+    font-style: normal;
+    font-weight: normal;
+    src: url('fonts/vazir/Vazir.eot');
+    src: url('fonts/vazir/Vazir.eot?#iefix') format('embedded-opentype'), url('fonts/vazir/Vazir.woff2') format('woff2'), url('fonts/vazir/Vazir.woff') format('woff'), url('fonts/vazir/Vazir.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Vazir;
+    font-style: normal;
+    font-weight: bold;
+    src: url('fonts/vazir/Vazir-Bold.eot');
+    src: url('fonts/vazir/Vazir-Bold.eot?#iefix') format('embedded-opentype'), url('fonts/vazir/Vazir-Bold.woff2') format('woff2'), url('fonts/vazir/Vazir-Bold.woff') format('woff'), url('fonts/vazir/Vazir-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Vazir;
+    font-style: normal;
+    font-weight: lighter;
+    src: url('fonts/vazir/Vazir-Light.eot');
+    src: url('fonts/vazir/Vazir-Light.eot') format('embedded-opentype'), url('fonts/vazir/Vazir-Light.woff2') format('woff2'), url('fonts/vazir/Vazir-Light.woff') format('woff'), url('fonts/vazir/Vazir-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Vazir;
+    font-style: normal;
+    font-weight: thin;
+    src: url('fonts/vazir/Vazir-Thin.eot');
+    src: url('fonts/vazir/Vazir-Thin.eot') format('embedded-opentype'), url('fonts/vazir/Vazir-Thin.woff2') format('woff2'), url('fonts/vazir/Vazir-Thin.woff') format('woff'), url('fonts/vazir/Vazir-Thin.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Vazir;
+    font-style: normal;
+    font-weight: 'reqular';
+    src: url('fonts/vazir/Vazir-Regular.eot');
+    src: url('fonts/vazir/Vazir-Regular.eot') format('embedded-opentype'), url('fonts/vazir/Vazir-Regular.woff2') format('woff2'), url('fonts/vazir/Vazir-Regular.woff') format('woff'), url('fonts/vazir/Vazir-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Vazir;
+    font-style: normal;
+    font-weight: medium;
+    src: url('fonts/vazir/Vazir-Medium.eot');
+    src: url('fonts/vazir/Vazir-Medium.eot') format('embedded-opentype'), url('fonts/vazir/Vazir-Medium.woff2') format('woff2'), url('fonts/vazir/Vazir-Medium.woff') format('woff'), url('fonts/vazir/Vazir-Medium.ttf') format('truetype');
+}
