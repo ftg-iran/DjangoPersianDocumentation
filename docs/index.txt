@@ -45,7 +45,7 @@
 
 * هنوز به جواب نرسیده اید؟ برای گرفتن اطلاعات در مورد دریافت پشتیبانی و پرسیدن سوال از انجمن به :doc:`سوالات متداول: دریافت کمک <faq/help>` مراجعه کنید.
 
-* اشکالات و باگ های جنگو را در `ticket tracker <https://docs.djangoproject.com>`__ به ما گزارش دهید.
+* اشکالات و باگ های جنگو را در `ticket tracker <https://code.djangoproject.com>`__ به ما گزارش دهید.
 
 
 .. _how-the-documentation-is-organized:
@@ -66,7 +66,7 @@
 
 .. _the-model-layer:
 
-لایه مدل (موضوعات پیرامون دیتابیس و داده ها که در جنگو مدل نامیده میشود)
+لایه مدل (موضوعات پیرامون دیتابیس و داده ها در جنگو)
 ============================================================================
 
 جنگو لایه ای انتزاعی تحت عنوان "مدل ها (models)" برای ساختاردهی و دستکاری داده های برنامه وب شما ارائه میدهد. در مورد انها بیشتر بدانید:
@@ -85,40 +85,40 @@
   :doc:`Lookup expressions <ref/models/lookups>` (اصطلاحات جستجو)
 
 * **Model instances (نمونه های مدل):**
-  :doc:`Instance methods <ref/models/instances>` (متدهای نمونه) |
+  :doc:`Instance methods <ref/models/instances>` (متدهای نمونه مدل) |
   :doc:`Accessing related objects <ref/models/relations>` (دسترسی به اشیا مرتبط)
   
+* **Migrations (مهاجرت ها : مهاجرت تغیرات مدل ها به کدهای دیتابیسی):**
+  :doc:`Introduction to Migrations <topics/migrations>` (آشنایی با مهاجرت ها) |
+  :doc:`Operations reference <ref/migration-operations>` (مرجع عملیات ها) |
+  :doc:`SchemaEditor <ref/schema-editor>` (ویرایشگر الگو) |
+  :doc:`Writing migrations <howto/writing-migrations>` (نوشتن مهاجرت ها)
 
-  
+* **Advanced (پیشرفته):**
+  :doc:`Managers <topics/db/managers>` (مدیران) |
+  :doc:`Raw SQL <topics/db/sql>` (sql خام) |
+  :doc:`Transactions <topics/db/transactions>` (تراکنش ها [راه های مدیریت تراکنش های دیتابیس در جنگو]) |
+  :doc:`Aggregation <topics/db/aggregation>` (انبوه [مباحث مرتبط با داده های گرفته شده از دیگر داده ها]) |
+  :doc:`Search <topics/db/search>` (جستجو) |
+  :doc:`Custom fields <howto/custom-model-fields>` (فیلدهای سفارشی) |
+  :doc:`Multiple databases <topics/db/multi-db>` (پایگاه های داده متعدد) |
+  :doc:`Custom lookups <howto/custom-lookups>` (جستجوهای سفارشی) |
+  :doc:`Query Expressions <ref/models/expressions>` (عبارات کوئری) |
+  :doc:`Conditional Expressions <ref/models/conditional-expressions>` (عبارات شرطی) |
+  :doc:`Database Functions <ref/models/database-functions>` (توابع پایگاه داده)
 
-* **Migrations:**
-  :doc:`Introduction to Migrations<topics/migrations>` |
-  :doc:`Operations reference <ref/migration-operations>` |
-  :doc:`SchemaEditor <ref/schema-editor>` |
-  :doc:`Writing migrations <howto/writing-migrations>`
+* **Other (سایرموارد):**
+  :doc:`Supported databases <ref/databases>` (پایگاه های داده ی پشتیبانی شده) |
+  :doc:`Legacy databases <howto/legacy-databases>` (پایگاه های داده قدیمی) |
+  :doc:`Providing initial data <howto/initial-data>` (ارائه داده های اولیه) |
+  :doc:`Optimize database access <topics/db/optimization>` (بهینه سازی دسترسی های پایگاه داده) |
+  :doc:`PostgreSQL specific features <ref/contrib/postgres/index>` (ویژگی های خاص پایگاه داده PostgreSQL)
 
-* **Advanced:**
-  :doc:`Managers <topics/db/managers>` |
-  :doc:`Raw SQL <topics/db/sql>` |
-  :doc:`Transactions <topics/db/transactions>` |
-  :doc:`Aggregation <topics/db/aggregation>` |
-  :doc:`Search <topics/db/search>` |
-  :doc:`Custom fields <howto/custom-model-fields>` |
-  :doc:`Multiple databases <topics/db/multi-db>` |
-  :doc:`Custom lookups <howto/custom-lookups>` |
-  :doc:`Query Expressions <ref/models/expressions>` |
-  :doc:`Conditional Expressions <ref/models/conditional-expressions>` |
-  :doc:`Database Functions <ref/models/database-functions>`
 
-* **Other:**
-  :doc:`Supported databases <ref/databases>` |
-  :doc:`Legacy databases <howto/legacy-databases>` |
-  :doc:`Providing initial data <howto/initial-data>` |
-  :doc:`Optimize database access <topics/db/optimization>` |
-  :doc:`PostgreSQL specific features <ref/contrib/postgres/index>`
+.. _the-view-layer:
 
-The view layer
-==============
+لایه ویو (موضوعات پیرامون پردازش ریکوئست ها و پاسخ به آنها در جنگو)
+===================================================================
 
 Django has the concept of "views" to encapsulate the logic responsible for
 processing a user's request and for returning the response. Find all you need
