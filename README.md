@@ -27,7 +27,7 @@ The full content of the documentation can also be viewed **[Here](https://docs.d
         |- django docs/ (ignored by .gitignore)  
         |- docs/  
         |- local docs/ (ignored by .gitignore)  
-        |- .gitignore
+        |- .gitignore  
         |- local-project-creator.py  
         |- ...
     * Our `local docs` folder hasn't been created yet, and we need to apply the latest update of our project (`docs`) to `django docs` then we can work with it. To create it, just run the `local-project-creator.py` module to create `local docs`. Note that the default values in this file are `django docs`,`docs` and `local docs`. 
