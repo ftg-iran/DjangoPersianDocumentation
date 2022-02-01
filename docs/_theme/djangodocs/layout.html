@@ -1,20 +1,18 @@
 {% extends "basic/layout.html" %}
 
-{%- macro secondnav() %}
-  {%- if prev %}
+{% macro secondnav() %}
+  {% if prev and next %}
     &laquo; <a href="{{ prev.link|e }}" title="{{ prev.title|e }}">قبلی</a>
     {{ reldelim2 }}
-  {%- endif %}
-  {%- if parents %}
-    <a href="{{ parents.0.link|e }}" title="{{ parents.0.title|e }}" accesskey="U">بالا</a>
-  {%- else %}
-    <a title="{{ docstitle }}" href="{{ pathto('index') }}" accesskey="U">بالا</a>
-  {%- endif %}
-  {%- if next %}
-  {{ reldelim2 }}
     <a href="{{ next.link|e }}" title="{{ next.title|e }}">بعدی</a> &raquo;
-  {%- endif %}
-{%- endmacro %}
+  {% elif prev %}
+    &laquo; <a href="{{ prev.link|e }}" title="{{ prev.title|e }}">قبلی</a>&raquo;
+  {% elif next %}
+    &laquo; <a href="{{ next.link|e }}" title="{{ next.title|e }}">بعدی</a> &raquo;
+  {% else %}
+  <br>
+  {% endif %}
+{% endmacro %}
 
 {% block extrahead %}
 {# When building htmlhelp (CHM format) disable jQuery inclusion, #}
@@ -79,7 +77,7 @@
 {% block document %}
   <div id="custom-doc" class="{% block bodyclass %}{{ 'yui-t6' if pagename != 'index' and pagename != 'about' else '' }}{% endblock %}">
     <div id="hd">
-      <h1><a href="{{ pathto('index') }}">{{ docstitle }}</a></h1>
+      <h1><a href="{{ pathto('index') }}">مستندات فارسی جنگو ۳.۲</a></h1>
       <div id="global-nav">
         {% if pagename == 'index' %}
           <a title="Home page" class='active' href="{{ pathto('index') }}">خانه</a> {{ reldelim2 }}
