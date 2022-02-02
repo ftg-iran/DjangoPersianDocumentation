@@ -16,7 +16,7 @@
   - The documentation is based on the latest LTS version of Django, which is currently **[3.2](https://github.com/django/django/tree/stable/3.2.x)** and this project is a translation of the docs that exist **[Here](https://docs.djangoproject.com/en/3.2/)**.
 The full content of the documentation can also be viewed **[Here](https://docs.djangoproject.com/en/3.2/contents/)**  
   
-  - **Steps to ready to work with it:**  
+  - **Steps to get things ready:**  
     * First of all, download this repo through the Git or this [link](https://github.com/amirilf/DjangoPersianDocumentation/archive/refs/heads/main.zip)
     * To work with it, you need to download Django 3.2 repository, which can be downloaded through this **[link](https://github.com/django/django/archive/refs/heads/stable/3.2.x.zip)** (make sure you download the repository version 3.2).
     * In the Django 3.2 repository folder, rename the `docs` folder to `django docs` and copy that to the project folder which is `DjangoPersianDocumentation` (if you downloaded this repo via the link, there is probably a branch name at the end of the folder name, which you can change it to `DjangoPersianDocumentation` or continue anyway).
@@ -32,9 +32,8 @@ The full content of the documentation can also be viewed **[Here](https://docs.d
         |- ...
     * Our `local docs` folder hasn't been created yet, and we need to apply the latest update of our project (`docs`) to `django docs` then we can work with it. To create it, just run the `local-project-creator.py` module to create `local docs`. Note that the default values in this file are `django docs`,`docs` and `local docs`. 
 
-    * After doing the above steps, just enter the `local docs` folder, run the `make.bat html` command to create html files from raw files. After a while, you can see that a folder called `_build` has been created. Inside that folder, you can see the `html` folder, which contains the project html files.
+    * After doing the steps above, just enter the `local docs` folder, run the `make.bat html` command to create html files from raw files. After a while, you can see that a folder called `_build` has been created. Inside that folder, you can see the `html` folder, which contains the project html files.
     * Just open index.html and see the result
-
 
 ### How to change and translate files?
   * Just translate the text files and then run the `make.bat html` command to make the project changes and you can see the new result again.
