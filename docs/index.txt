@@ -134,7 +134,7 @@
 
 * **Reference (ارجاعات) :**
   :doc:`Built-in Views <ref/views>` (ویوهای داخلی جنگو) |
-  :doc:`Request/response objects <ref/request-response>` (اشیاء درخواست/پاسخ) |
+  :doc:`Request/response objects <ref/request-response>` (اشیاء درخواست/پاسخ :help:`منظور از اشیا و یا همان object ها ، نمونه های یک کلاس میباشد که در این بخش توضیحات در خصوص خواص و ویژگی های object های دو کلاس request و response آمده است.`) |
   :doc:`TemplateResponse objects <ref/template-response>` (اشیاء TemplateResponse)
 
 * **File uploads:**

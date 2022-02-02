@@ -38,6 +38,7 @@ needs_sphinx = '1.6.0'
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = [
     "djangodocs",
+    'htmlinline',
     'sphinx.ext.extlinks',
     "sphinx.ext.intersphinx",
     "sphinx.ext.viewcode",
