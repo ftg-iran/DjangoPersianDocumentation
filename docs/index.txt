@@ -68,10 +68,10 @@
 
 .. _the-model-layer:
 
-لایه مدل (model,موضوعات پیرامون دیتابیس و داده ها در جنگو)
-============================================================================
+لایه مدل (model)
+================
 
-جنگو لایه ای انتزاعی تحت عنوان مدل ها (models) برای ساختاردهی و دستکاری داده های برنامه وب شما ارائه میدهد. در مورد انها بیشتر بدانید:
+جنگو لایه ای انتزاعی تحت عنوان مدل ها (models) برای ساختاردهی و دستکاری دیتابیس و داده های برنامه وب شما فراهم میکند. در مورد انها بیشتر بدانید:
 
 
 * **Models (مدل ها) :**
@@ -119,8 +119,8 @@
 
 .. _the-view-layer:
 
-لایه ویو (view,موضوعات پیرامون پردازش ریکوئست ها و پاسخ به آنها در جنگو)
-========================================================================
+لایه ویو (view)
+===============
 
 جنگو مفهومی تحت عنوان ویوها (views) دارد که برای بیان منطق مدیریت پردازش درخواست های کاربر (requests) و همچنین بازگرداندن پاسخ مناسب به آن (responses) ایجاد شده است. از طریق لینک های زیر هرآنچه برای دانستن نیاز دارید را میتوانید پیدا کنید:
 
@@ -137,214 +137,201 @@
   :doc:`Request/response objects <ref/request-response>` (اشیاء درخواست/پاسخ :help:`منظور از اشیا و یا همان object ها ، نمونه های یک کلاس میباشد که در این بخش توضیحات در خصوص خواص و ویژگی های object های دو کلاس request و response آمده است.`) |
   :doc:`TemplateResponse objects <ref/template-response>` (اشیاء TemplateResponse)
 
-* **File uploads:**
-  :doc:`Overview <topics/http/file-uploads>` |
-  :doc:`File objects <ref/files/file>` |
-  :doc:`Storage API <ref/files/storage>` |
-  :doc:`Managing files <topics/files>` |
-  :doc:`Custom storage <howto/custom-file-storage>`
+* **File uploads (آپلود فایل ها) :**
+  :doc:`Overview <topics/http/file-uploads>` (بررسی اجمالی) |
+  :doc:`File objects <ref/files/file>` (اشیاء File :help:`منظور از اشیا و یا همان object ها ، نمونه های یک کلاس میباشد که در این بخش توضیحات در خصوص خواص و ویژگی های object های کلاس File آمده است.`) |
+  :doc:`Storage API <ref/files/storage>` (API های کلاس Storage) |
+  :doc:`Managing files <topics/files>` (مدیریت فایل ها) |
+  :doc:`Custom storage <howto/custom-file-storage>` (ذخیره سازی سفارشی)
 
-* **Class-based views:**
-  :doc:`Overview <topics/class-based-views/index>` |
-  :doc:`Built-in display views <topics/class-based-views/generic-display>` |
-  :doc:`Built-in editing views <topics/class-based-views/generic-editing>` |
-  :doc:`Using mixins <topics/class-based-views/mixins>` |
-  :doc:`API reference <ref/class-based-views/index>` |
-  :doc:`Flattened index<ref/class-based-views/flattened-index>`
+* **Class-based views (ویوهای برپایه ی class) :**
+  :doc:`Overview <topics/class-based-views/index>` (بررسی اجمالی) |
+  :doc:`Built-in display views <topics/class-based-views/generic-display>` (ویوهای نمایشی داخلی جنگو :help:`توضیحات در خصوص ویوهای کلس بیس خود جنگو که برای نشان دادن object ها به کار برده میشود`) |
+  :doc:`Built-in editing views <topics/class-based-views/generic-editing>` (ویوهای ویرایشی داخلی جنگو :help:`توضیحات در خصوص ویوهای کلس بیس خود جنگو که برای تغییرات object ها به کار برده میشود مانند حذف یا ویرایش آنها`) |
+  :doc:`Using mixins <topics/class-based-views/mixins>` (استفاده از میکسین ها) |
+  :doc:`API reference <ref/class-based-views/index>` (مرجع API ویوهای کلس بیس) |
+  :doc:`Flattened index<ref/class-based-views/flattened-index>` (نمایه مسطح :help:`ارائه خلاصه و مفید ویوهای عمومی کلاس بیس به همراه ویژگی ها و متدهای موثر هر کلاس`)
 
-* **Advanced:**
-  :doc:`Generating CSV <howto/outputting-csv>` |
-  :doc:`Generating PDF <howto/outputting-pdf>`
+* **Advanced (پیشرفته) :**
+  :doc:`Generating CSV <howto/outputting-csv>` (ایجاد CSV) |
+  :doc:`Generating PDF <howto/outputting-pdf>` (ایجاد PDF)
 
-* **Middleware:**
-  :doc:`Overview <topics/http/middleware>` |
-  :doc:`Built-in middleware classes <ref/middleware>`
+* **Middleware (میان افزارها) :**
+  :doc:`Overview <topics/http/middleware>` (بررسی اجمالی) |
+  :doc:`Built-in middleware classes <ref/middleware>` (کلاس های میان افزار داخلی جنگو)
 
-The template layer
-==================
-
-The template layer provides a designer-friendly syntax for rendering the
-information to be presented to the user. Learn how this syntax can be used by
-designers and how it can be extended by programmers:
-
-* **The basics:**
-  :doc:`Overview <topics/templates>`
-
-* **For designers:**
-  :doc:`Language overview <ref/templates/language>` |
-  :doc:`Built-in tags and filters <ref/templates/builtins>` |
-  :doc:`Humanization <ref/contrib/humanize>`
-
-* **For programmers:**
-  :doc:`Template API <ref/templates/api>` |
-  :doc:`Custom tags and filters <howto/custom-template-tags>` |
-  :doc:`Custom template backend <howto/custom-template-backend>`
-
-Forms
-=====
-
-Django provides a rich framework to facilitate the creation of forms and the
-manipulation of form data.
-
-* **The basics:**
-  :doc:`Overview <topics/forms/index>` |
-  :doc:`Form API <ref/forms/api>` |
-  :doc:`Built-in fields <ref/forms/fields>` |
-  :doc:`Built-in widgets <ref/forms/widgets>`
-
-* **Advanced:**
-  :doc:`Forms for models <topics/forms/modelforms>` |
-  :doc:`Integrating media <topics/forms/media>` |
-  :doc:`Formsets <topics/forms/formsets>` |
-  :doc:`Customizing validation <ref/forms/validation>`
-
-The development process
-=======================
-
-Learn about the various components and tools to help you in the development and
-testing of Django applications:
-
-* **Settings:**
-  :doc:`Overview <topics/settings>` |
-  :doc:`Full list of settings <ref/settings>`
-
-* **Applications:**
-  :doc:`Overview <ref/applications>`
-
-* **Exceptions:**
-  :doc:`Overview <ref/exceptions>`
-
-* **django-admin and manage.py:**
-  :doc:`Overview <ref/django-admin>` |
-  :doc:`Adding custom commands <howto/custom-management-commands>`
-
-* **Testing:**
-  :doc:`Introduction <topics/testing/index>` |
-  :doc:`Writing and running tests <topics/testing/overview>` |
-  :doc:`Included testing tools <topics/testing/tools>` |
-  :doc:`Advanced topics <topics/testing/advanced>`
-
-* **Deployment:**
-  :doc:`Overview <howto/deployment/index>` |
-  :doc:`WSGI servers <howto/deployment/wsgi/index>` |
-  :doc:`ASGI servers <howto/deployment/asgi/index>` |
-  :doc:`Deploying static files <howto/static-files/deployment>` |
-  :doc:`Tracking code errors by email <howto/error-reporting>` |
-  :doc:`Deployment checklist <howto/deployment/checklist>`
-
-The admin
-=========
-
-Find all you need to know about the automated admin interface, one of Django's
-most popular features:
-
-* :doc:`Admin site <ref/contrib/admin/index>`
-* :doc:`Admin actions <ref/contrib/admin/actions>`
-* :doc:`Admin documentation generator<ref/contrib/admin/admindocs>`
-
-Security
-========
-
-Security is a topic of paramount importance in the development of Web
-applications and Django provides multiple protection tools and mechanisms:
-
-* :doc:`Security overview <topics/security>`
-* :doc:`Disclosed security issues in Django <releases/security>`
-* :doc:`Clickjacking protection <ref/clickjacking>`
-* :doc:`Cross Site Request Forgery protection <ref/csrf>`
-* :doc:`Cryptographic signing <topics/signing>`
-* :ref:`Security Middleware <security-middleware>`
-
-Internationalization and localization
-=====================================
-
-Django offers a robust internationalization and localization framework to
-assist you in the development of applications for multiple languages and world
-regions:
-
-* :doc:`Overview <topics/i18n/index>` |
-  :doc:`Internationalization <topics/i18n/translation>` |
-  :ref:`Localization <how-to-create-language-files>` |
-  :doc:`Localized Web UI formatting and form input <topics/i18n/formatting>`
-* :doc:`Time zones </topics/i18n/timezones>`
-
-Performance and optimization
-============================
-
-There are a variety of techniques and tools that can help get your code running
-more efficiently - faster, and using fewer system resources.
-
-* :doc:`Performance and optimization overview <topics/performance>`
-
-Geographic framework
+لایه قالب (template)
 ====================
 
-:doc:`GeoDjango <ref/contrib/gis/index>` intends to be a world-class geographic
-Web framework. Its goal is to make it as easy as possible to build GIS Web
-applications and harness the power of spatially enabled data.
+لایه قالب یا تمپلیت یک سینتکس طراح پسند را برای تفسیر و پردازش اطلاعاتی فراهم میکند که قرار است به کاربر ارائه شوند. بیاموزید که چگونه سینتکس ان میتواند توسط طراحان مورد استفاده قرار بگیرد و چگونه میتواند توسط برنامه نویسان گسترش پیدا کند:
 
-Common Web application tools
-============================
+* **The basics (اصول اولیه) :**
+  :doc:`Overview <topics/templates>` (بررسی اجمالی)
 
-Django offers multiple tools commonly needed in the development of Web
-applications:
+* **For designers (برای طراحان) :**
+  :doc:`Language overview <ref/templates/language>` (بررسی اجمالی زبان قالب در جنگو) |
+  :doc:`Built-in tags and filters <ref/templates/builtins>` (تگ ها و فیلتر های داخلی جنگو) |
+  :doc:`Humanization <ref/contrib/humanize>` (انسان سازی :help:`مجموعه از از فیلترهای جنگو که برای انسانی تر کردن دیتاها به کار میروند`)
 
-* **Authentication:**
-  :doc:`Overview <topics/auth/index>` |
-  :doc:`Using the authentication system <topics/auth/default>` |
-  :doc:`Password management <topics/auth/passwords>` |
-  :doc:`Customizing authentication <topics/auth/customizing>` |
-  :doc:`API Reference <ref/contrib/auth>`
-* :doc:`Caching <topics/cache>`
-* :doc:`Logging <topics/logging>`
-* :doc:`Sending emails <topics/email>`
+* **For programmers (برای برنامه نویسان) :**
+  :doc:`Template API <ref/templates/api>` (API لایه قالب در جنگو :help:`توضیحات لایه قالب به صورت فنی و نحوه کار و گسترش آن`) |
+  :doc:`Custom tags and filters <howto/custom-template-tags>` (تگ ها و فیلترهای سفارشی) |
+  :doc:`Custom template backend <howto/custom-template-backend>` (قالب سفارشی)
+
+فرم ها (Forms)
+==============
+جنگو چهارچوب غنی و کاملی برای ساخت فرم ها و دستکاری داده های آن فراهم میکند.
+
+* **The basics (اصول اولیه) :**
+  :doc:`Overview <topics/forms/index>` (بررسی اجمالی) |
+  :doc:`Form API <ref/forms/api>` (API بخش Form :help:`توضیحات متدها و روش های فرم ها در جنگو`) |
+  :doc:`Built-in fields <ref/forms/fields>` (فیلدهای داخلی جنگو) |
+  :doc:`Built-in widgets <ref/forms/widgets>` (ویجت های داخلی جنگو)
+
+* **Advanced (پیشرفته) :**
+  :doc:`Forms for models <topics/forms/modelforms>` (فرم ها برای مدل ها) |
+  :doc:`Integrating media <topics/forms/media>` (یکپارچه سازی رسانه ها) |
+  :doc:`Formsets <topics/forms/formsets>` (مجموعه فرم ها) |
+  :doc:`Customizing validation <ref/forms/validation>` (سفارشی کردن اعتبارسنجی)
+
+فرآیند توسعه
+=============
+در مورد اجزاهای مختلف و ابزارهایی که به شما در توسعه و تست نویسی در جنگو وب اپلیکیشن ها کمک میکنند بیشتر بدانید:
+
+* **Settings (تنظیمات) :**
+  :doc:`Overview <topics/settings>` (بررسی اجمالی) |
+  :doc:`Full list of settings <ref/settings>` (لیست کامل تنظیمات)
+
+* **Applications (اپلیکیشن ها) :**
+  :doc:`Overview <ref/applications>` (بررسی اجمالی)
+
+* **Exceptions (ارورهای جنگو) :**
+  :doc:`Overview <ref/exceptions>` (بررسی اجمالی)
+
+* **django-admin و manage.py :**
+  :doc:`Overview <ref/django-admin>` (بررسی اجمالی) |
+  :doc:`Adding custom commands <howto/custom-management-commands>` (اضافه کردن دستورات سفارشی)
+
+* **Testing (تست نویسی) :**
+  :doc:`Introduction <topics/testing/index>` (معرفی) |
+  :doc:`Writing and running tests <topics/testing/overview>` (نوشتن و اجرا کردن تست ها) |
+  :doc:`Included testing tools <topics/testing/tools>` (ابزارهای تست نویسی) |
+  :doc:`Advanced topics <topics/testing/advanced>` (موضوعات پیشرفته)
+
+* **Deployment (راه اندازی پروژه) :**
+  :doc:`Overview <howto/deployment/index>` (بررسی اجمالی) |
+  :doc:`WSGI servers <howto/deployment/wsgi/index>` (سرورهای WSGI) |
+  :doc:`ASGI servers <howto/deployment/asgi/index>` (سرورهای ASGI) |
+  :doc:`Deploying static files <howto/static-files/deployment>` (استقرار فایل های استاتیک) |
+  :doc:`Tracking code errors by email <howto/error-reporting>` (ردیابی خطاهای کد از طریق ایمیل) |
+  :doc:`Deployment checklist <howto/deployment/checklist>` (چک لیست مورد نیاز راه اندازی پروژه)
+
+مدیر (Admin)
+============
+
+تمام چیزهای مورد نیاز در خصوص رابط مدیر خودکار بدانید، یکی از محبوب ترین ویژگی های جنگو: 
+
+* :doc:`Admin site <ref/contrib/admin/index>` (ادمین پنل)
+* :doc:`Admin actions <ref/contrib/admin/actions>` (اکشن ها در ادمین پنل)
+* :doc:`Admin documentation generator<ref/contrib/admin/admindocs>` (تولید کننده مستندات ادمین)
+
+امنیت (Security)
+================
+
+امنیت موضوعی بسیار مهم در توسعه وب اپلیکیشن ها میباشد و جنگو در این راستا ابزارها و مکانیسم های حفاظتی متعددی را فراهم میکند:
+
+* :doc:`Security overview <topics/security>` (بررسی اجمالی امنیت)
+* :doc:`Disclosed security issues in Django <releases/security>` (مشکلات امنیتی گزارش شده در جنگو )
+* :doc:`Clickjacking protection <ref/clickjacking>` (حفاظت از Clickjacking)
+* :doc:`Cross Site Request Forgery protection <ref/csrf>` (حفاظت از جعل درخواست کراس سایت)
+* :doc:`Cryptographic signing <topics/signing>` (امضای رمزنگاری)
+* :ref:`Security Middleware <security-middleware>` (میان افزار امنیتی)
+
+بین المللی و بومی سازی (Internationalization and localization)
+==============================================================
+
+جنگو چهارچوبی قدرتمند برای بین المللی سازی و بومی سازی در جهت ساخت و توسعه برنامه های کاربردی برای چندین زبان مختلف دنیا را ارائه میدهد: 
+
+* :doc:`Overview <topics/i18n/index>` (بررسی اجمالی) |
+  :doc:`Internationalization <topics/i18n/translation>` (بین المللی سازی) |
+  :ref:`Localization <how-to-create-language-files>` (بومی سازی) |
+  :doc:`Localized Web UI formatting and form input <topics/i18n/formatting>` (قالب بندی UI و ورودی فرم بومی)
+* :doc:`Time zones </topics/i18n/timezones>` (محدوده های زمانی)
+
+عملکرد و بهینه سازی
+===================
+
+در جنگو تکنیک ها و ابزارهای متنوعی وجود دارد که میتوانند شما را برای اجرای کدی موثرتر، سریعتر و در عین حال با استفاده از کمترین منابع، کمک کنند.
+
+* :doc:`Performance and optimization overview <topics/performance>` (بررسی اجمالی عملکرد و بهینه سازی)
+
+چارچوب جغرافیایی (Geographic framework)
+=======================================
+
+:doc:`GeoDjango <ref/contrib/gis/index>` قصد دارد تا به یک وب فریم ورک جفرافیایی در سطح جهانی تبدیل شود و هدف آن این است که ساخت وب اپلیکیشن های GIS را تا حد امکان آسان کند و از قدرت داده های فعال مکانی استفاده کند. 
+
+ابزارهای کاربردی رایج وب اپلیکیشن
+==================================
+جنگو ابزارهای متعددی را ارائه می دهد که معمولاً در توسعه وب مورد نیاز هستند
+برنامه های کاربردی:
+
+جنگو ابزارهای متعددی ارائه میدهد که معمولا در توسعه وب اپلیکیشن ها مورد نیاز هستند: 
+
+* **Authentication (احراز هویت) :**
+  :doc:`Overview <topics/auth/index>` (بررسی اجمالی) |
+  :doc:`Using the authentication system <topics/auth/default>` (استفاده از سیستم احراز هویت) |
+  :doc:`Password management <topics/auth/passwords>` (مدیریت رمزعبور) |
+  :doc:`Customizing authentication <topics/auth/customizing>` (سفارشی سازی سیستم احرازهویت) |
+  :doc:`API Reference <ref/contrib/auth>` (مرجع API)
+* :doc:`Caching <topics/cache>` (ذخیره سازی)
+* :doc:`Logging <topics/logging>` (ورود به سیستم)
+* :doc:`Sending emails <topics/email>` (ارسال ایمیل ها)
 * :doc:`Syndication feeds (RSS/Atom) <ref/contrib/syndication>`
-* :doc:`Pagination <topics/pagination>`
-* :doc:`Messages framework <ref/contrib/messages>`
-* :doc:`Serialization <topics/serialization>`
-* :doc:`Sessions <topics/http/sessions>`
-* :doc:`Sitemaps <ref/contrib/sitemaps>`
-* :doc:`Static files management <ref/contrib/staticfiles>`
-* :doc:`Data validation <ref/validators>`
+* :doc:`Pagination <topics/pagination>` (صفحه بندی)
+* :doc:`Messages framework <ref/contrib/messages>` (فریم ورک پیام ها)
+* :doc:`Serialization <topics/serialization>` (سریال سازی)
+* :doc:`Sessions <topics/http/sessions>` (نشست ها)
+* :doc:`Sitemaps <ref/contrib/sitemaps>` (نقشه های سایت)
+* :doc:`Static files management <ref/contrib/staticfiles>` (مدیریت فایل های استتیک)
+* :doc:`Data validation <ref/validators>` (اعتبار سنجی داده ها)
 
-Other core functionalities
-==========================
+سایر قابلیت های اصلی
+====================
 
-Learn about some other core functionalities of the Django framework:
+با برخی دیگر از قابلیت های اصلی فریم ورک جنگو اشنا شوید:
 
-* :doc:`Conditional content processing <topics/conditional-view-processing>`
-* :doc:`Content types and generic relations <ref/contrib/contenttypes>`
-* :doc:`Flatpages <ref/contrib/flatpages>`
-* :doc:`Redirects <ref/contrib/redirects>`
-* :doc:`Signals <topics/signals>`
-* :doc:`System check framework <topics/checks>`
-* :doc:`The sites framework <ref/contrib/sites>`
-* :doc:`Unicode in Django <ref/unicode>`
+* :doc:`Conditional content processing <topics/conditional-view-processing>` (پردازش محتواهای شرطی)
+* :doc:`Content types and generic relations <ref/contrib/contenttypes>` (Content type ها و ارتباطات کلی)
+* :doc:`Flatpages <ref/contrib/flatpages>` (صفحات ثابت)
+* :doc:`Redirects <ref/contrib/redirects>` (تغییرمسیرها)
+* :doc:`Signals <topics/signals>` (سیگنال ها)
+* :doc:`System check framework <topics/checks>` (فریم ورک بررسی  سیستم)
+* :doc:`The sites framework <ref/contrib/sites>` (فریم ورک site جنگو)
+* :doc:`Unicode in Django <ref/unicode>` (یونیکد در جنگو)
 
-The Django open-source project
-==============================
+پروژه اپن سورس جنگو
+===================
 
-Learn about the development process for the Django project itself and about how
-you can contribute:
+در مورد فرایند توسعه خود پروژه جنگو و چگونگی مشارکت در پروژه را بدانید:
 
-* **Community:**
-  :doc:`How to get involved <internals/contributing/index>` |
-  :doc:`The release process <internals/release-process>` |
-  :doc:`Team organization <internals/organization>` |
-  :doc:`The Django source code repository <internals/git>` |
-  :doc:`Security policies <internals/security>` |
-  :doc:`Mailing lists <internals/mailing-lists>`
+* **Community (انجمن) :**
+  :doc:`How to get involved <internals/contributing/index>` (نحوه درگیر شدن در پروژه) |
+  :doc:`The release process <internals/release-process>` (فرایند انتشار) |
+  :doc:`Team organization <internals/organization>` (سازماندهی تیم) |
+  :doc:`The Django source code repository <internals/git>` (مخزن سورس کد جنگو) |
+  :doc:`Security policies <internals/security>` | (سیاست های امنیتی)
+  :doc:`Mailing lists <internals/mailing-lists>` (لیست های پستی)
 
-* **Design philosophies:**
-  :doc:`Overview <misc/design-philosophies>`
+* **Design philosophies (فلسفه های طراحی) :**
+  :doc:`Overview <misc/design-philosophies>` (بررسی اجمالی)
 
-* **Documentation:**
-  :doc:`About this documentation <internals/contributing/writing-documentation>`
+* **Documentation (مستندات) :**
+  :doc:`About this documentation <internals/contributing/writing-documentation>` (درباره این مستندات)
 
-* **Third-party distributions:**
-  :doc:`Overview <misc/distributions>`
+* **Third-party distributions (توزیع های شخص ثالث) :**
+  :doc:`Overview <misc/distributions>` (بررسی اجمالی)
 
-* **Django over time:**
-  :doc:`API stability <misc/api-stability>` |
-  :doc:`Release notes and upgrading instructions <releases/index>` |
-  :doc:`Deprecation Timeline <internals/deprecation>`
+* **Django over time (جنگو در طول زمان) :**
+  :doc:`API stability <misc/api-stability>` (پایداری API) |
+  :doc:`Release notes and upgrading instructions <releases/index>` (نسخه ها و دستورعمل های ارتقا) |
+  :doc:`Deprecation Timeline <internals/deprecation>` (جدول زمانی منسوخ شدن)
