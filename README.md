@@ -32,7 +32,7 @@ The full content of the documentation can also be viewed **[Here](https://docs.d
     * You no longer need the Django 3.2 repository folder so you can delete it (we only needed the `docs` folder)
     * Generally, we have a `django-docs` and `local-docs` folders in our project, the first one contains the original files of Django documentation and the second one is the result of changes of our project. So by default these values are placed in the `local-project-creator.py` and `.gitignore` files. If you want to change their names (it's recommended not to change their names), you must also change the names in the `local-project-creator.py` and `.gitignore` files.
     * Our `local-docs` folder hasn't been created yet, and we need to merge the latest update of our project (`docs`) to `django-docs` then we can work with it. So just run the `local-project-creator.py` module to create `local-docs`. Note that the default values in this file are `django-docs`,`docs` and `local-docs`. 
-    * After running the `local-project-creator.py`, project tree structure looks something like this:
+    * After running the `local-project-creator.py`, the project layout should look like:
       * DjangoPersianDocumentation  
         |- django-docs/ (ignored by .gitignore)  
         |- docs/  
