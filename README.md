@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://repository-images.githubusercontent.com/450027908/72795f16-1b71-41f7-b00f-8a06822d520f" alt="DjPrDoc" width="30%">
+  <img src="https://i.ibb.co/bbhqvJf/image.jpg" alt="DjPrDoc" width="30%">
   <p align="center">
   <b>
     Django Persian Documentation 
