@@ -47,6 +47,7 @@ The full content of the documentation can also be viewed **[Here](https://docs.d
 
 ### How to change and translate files?
   * After making changes just run the `make.bat html` (or `make html`) command to merge changes and you can see the new result again.
-  * Finally, put the edited files with the same path structure (e.g. if you changed in the `docs` folder of the project to save the changes.
+  * Finally, you have to put the edited files with the same path structure in the `docs` folder.
+
 <br>
 Have a nice day 💗

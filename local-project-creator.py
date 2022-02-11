@@ -3,9 +3,9 @@ import os
 import shutil
 
 #===== Setting
-django_docs_path         = 'django-docs' # The main Django documentation project folder ( 'django-docs' folder name is expected)
-project_docs_path_github = 'docs'        # Django Persian documentation project folder ( 'docs' folder name is expected if you've not changed its name)
-project_docs_path_local  = 'local-docs'  # A local documentation folder which will be made and includes the latest updates to the 'Django Persian documentation' Project ( 'local-docs' folder name is expected)
+django_docs_path         = 'django-docs' # The main Django documentation project folder ('django-docs' folder name is expected)
+project_docs_path_github = 'docs'        # The Django Persian documentation project folder ('docs' folder name is expected)
+project_docs_path_local  = 'local-docs'  # The local documentation folder which will be made and includes the latest updates of the 'Django Persian documentation' project ('local-docs' folder name is expected)
 
 #===== Funcs
 def find_paths(root_path):
