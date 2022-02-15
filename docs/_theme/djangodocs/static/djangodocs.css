@@ -729,3 +729,8 @@ div#contents ul ul li {
 .help-button:hover .text {
     visibility: visible;
 }
+
+.highlight {
+    direction: ltr;
+    text-align: left;
+}

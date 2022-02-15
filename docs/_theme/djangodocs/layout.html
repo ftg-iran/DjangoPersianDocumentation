@@ -104,11 +104,11 @@
         {% endif %}
 
         {% if pagename == 'about' %}
-          <a title="About" class='active' href="{{ pathto('about') }}">درباره</a>{{ reldelim2 }}
+          <a title="About" class='active' href="{{ pathto('about') }}">درباره</a>
         {% else %}
           <a title="About" href="{{ pathto('about') }}">درباره</a>{{ reldelim2 }}
-        {% endif %}
-        <a title="About" href="https://docs.djangoproject.com/en/3.2/{{ pagename }}">صفحه در مستندات رسمی</a>
+          <a title="About" href="https://docs.djangoproject.com/en/3.2/{{ pagename }}">صفحه در مستندات رسمی</a>
+          {% endif %}
 
       </div>
       <div class="nav">{{ secondnav() }}</div>
