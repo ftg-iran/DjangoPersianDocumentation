@@ -39,6 +39,8 @@ The full content of the documentation can also be viewed **[Here](https://docs.d
         |- local-docs/ (ignored by .gitignore)  
         |- .gitignore  
         |- local-project-creator.py  
+        |- README.md  
+        |- requirements.txt  
         |- ...
     * To work with documentation, you must install the Sphinx requirements. So first create your virtual environment and activate it (**[See how to do it](https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/)**, It's recommended to name your virtual environment `env`), and then install the project requirements with `pip install -r requirements.txt` command.
 
