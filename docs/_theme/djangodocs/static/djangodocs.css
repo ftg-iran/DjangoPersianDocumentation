@@ -6,6 +6,7 @@
 
 * a,
 .doc,
+.std,
 input[type="submit"] {
     cursor: pointer
 }

@@ -160,6 +160,9 @@
   :doc:`Overview <topics/http/middleware>` (بررسی اجمالی) |
   :doc:`Built-in middleware classes <ref/middleware>` (کلاس های میان افزار داخلی جنگو)
 
+
+.. _the-template-layer:
+
 لایه قالب (template)
 ====================
 
@@ -178,6 +181,9 @@
   :doc:`Custom tags and filters <howto/custom-template-tags>` (تگ ها و فیلترهای سفارشی) |
   :doc:`Custom template backend <howto/custom-template-backend>` (قالب سفارشی)
 
+
+.. _forms:
+
 فرم ها (Forms)
 ==============
 جنگو چهارچوب غنی و کاملی برای ساخت فرم ها و دستکاری داده های آن فراهم میکند.
@@ -193,6 +199,9 @@
   :doc:`Integrating media <topics/forms/media>` (یکپارچه سازی رسانه ها) |
   :doc:`Formsets <topics/forms/formsets>` (مجموعه فرم ها) |
   :doc:`Customizing validation <ref/forms/validation>` (سفارشی کردن اعتبارسنجی)
+
+
+.. _the-development-process:
 
 فرآیند توسعه
 =============
@@ -226,6 +235,9 @@
   :doc:`Tracking code errors by email <howto/error-reporting>` (ردیابی خطاهای کد از طریق ایمیل) |
   :doc:`Deployment checklist <howto/deployment/checklist>` (چک لیست مورد نیاز راه اندازی پروژه)
 
+
+.. _the-admin:
+
 مدیر (Admin)
 ============
 
@@ -234,6 +246,9 @@
 * :doc:`Admin site <ref/contrib/admin/index>` (ادمین پنل)
 * :doc:`Admin actions <ref/contrib/admin/actions>` (اکشن ها در ادمین پنل)
 * :doc:`Admin documentation generator<ref/contrib/admin/admindocs>` (تولید کننده مستندات ادمین)
+
+
+.. _security:
 
 امنیت (Security)
 ================
@@ -247,6 +262,9 @@
 * :doc:`Cryptographic signing <topics/signing>` (امضای رمزنگاری)
 * :ref:`Security Middleware <security-middleware>` (میان افزار امنیتی)
 
+
+.. _internationalization-and-localization:
+
 بین المللی و بومی سازی (Internationalization and localization)
 ==============================================================
 
@@ -258,6 +276,9 @@
   :doc:`Localized Web UI formatting and form input <topics/i18n/formatting>` (قالب بندی UI و ورودی فرم بومی)
 * :doc:`Time zones </topics/i18n/timezones>` (محدوده های زمانی)
 
+
+.. _performance-and-optimization:
+
 عملکرد و بهینه سازی
 ===================
 
@@ -265,10 +286,16 @@
 
 * :doc:`Performance and optimization overview <topics/performance>` (بررسی اجمالی عملکرد و بهینه سازی)
 
+
+.. _geographic-framework:
+
 چارچوب جغرافیایی (Geographic framework)
 =======================================
 
 :doc:`GeoDjango <ref/contrib/gis/index>` قصد دارد تا به یک وب فریم ورک جفرافیایی در سطح جهانی تبدیل شود و هدف آن این است که ساخت وب اپلیکیشن های GIS را تا حد امکان آسان کند و از قدرت داده های فعال مکانی استفاده کند. 
+
+
+.. _common-web-application-tools:
 
 ابزارهای کاربردی رایج وب اپلیکیشن
 ==================================
@@ -295,6 +322,9 @@
 * :doc:`Static files management <ref/contrib/staticfiles>` (مدیریت فایل های استتیک)
 * :doc:`Data validation <ref/validators>` (اعتبار سنجی داده ها)
 
+
+.. _other-core-functionalities:
+
 سایر قابلیت های اصلی
 ====================
 
@@ -308,6 +338,9 @@
 * :doc:`System check framework <topics/checks>` (فریم ورک بررسی  سیستم)
 * :doc:`The sites framework <ref/contrib/sites>` (فریم ورک site جنگو)
 * :doc:`Unicode in Django <ref/unicode>` (یونیکد در جنگو)
+
+
+.. _the-django-open-source-project:
 
 پروژه اپن سورس جنگو
 ===================
