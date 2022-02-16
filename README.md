@@ -45,11 +45,16 @@ The full content of the documentation can also be viewed **[Here](https://docs.d
     * To work with documentation, you must install the Sphinx requirements. So first create your virtual environment and activate it (**[See how to do it](https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/)**, It's recommended to name your virtual environment `env`), and then install the project requirements with `pip install -r requirements.txt` command.
 
     * After doing the steps above, just enter the `local-docs` folder, run the `make.bat html` (or `make html`) command to create html files from raw files. After a while, you can see that a folder called `_build` has been created. Inside that folder, you can see the `html` folder, which contains the project html files.
-    * Just open index.html and see the result
+    * Just open index.html and see the result.
 
-### How to change and translate files?
-  * After making changes just run the `make.bat html` (or `make html`) command to merge changes and you can see the new result again.
+### How to contribute?
+  * After making changes in `local-docs` files, just run the `make.bat html` (or `make html`) command to merge changes and see the new result again.
   * Finally, you have to put the edited files with the same path structure in the `docs` folder.
+  * If you decide to contribute, be sure to look at the about page in project.
 
 <br>
-Have a nice day 💗
+
+**Telegram group : https://t.me/PersianDjangoDocumentation**
+<br>
+
+Have a nice day ♥️
