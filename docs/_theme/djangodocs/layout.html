@@ -135,9 +135,10 @@
       {% endblock %}
     </div>
 
-    <div id="ft">
+    <!-- <div id="ft">
       <div class="nav">{{ secondnav() }}</div>
-    </div>
+    </div> -->
+    
   </div>
 {% endblock %}
 
@@ -169,4 +170,11 @@
 {% block relbar2 %}{% endblock %}
 {% block sidebar1 %}{% endblock %}
 {% block sidebar2 %}{% endblock %}
-{% block footer %}{% endblock %}
+
+{% block footer %}
+{% if pagename != 'about' %}
+  <div id="ft">
+      <a title="Github repository" target="_blank" href="https://github.com/amirilf/PersianDjangoDocumentation">Github repository</a>
+  </div>
+{% endif %}
+{% endblock %}

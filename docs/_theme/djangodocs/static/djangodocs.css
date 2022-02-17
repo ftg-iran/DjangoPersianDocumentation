@@ -57,7 +57,7 @@ body {
 #ft {
     color: #487858;
     font-size: 90%;
-    padding-bottom: 2em;
+    padding: 15px;
 }
 
 
@@ -204,7 +204,7 @@ div.nav {
 }
 
 #yui-main div.yui-b {
-    margin: 0 0 0 20px;
+    margin: 0px;
     background: white;
     color: black;
     padding: 0.3em 2em 1em 2em;
