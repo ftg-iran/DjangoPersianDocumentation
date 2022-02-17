@@ -1,0 +1,29 @@
+.. _django-documentation-contents:
+
+=========================
+فهرست محتوای مستندات جنگو
+=========================
+
+
+.. toctree::
+    :maxdepth: 3
+
+    index
+    intro/index
+    topics/index
+    howto/index
+    faq/index
+    ref/index
+    misc/index
+    glossary
+    releases/index
+    internals/index
+
+.. _indices-glossary-and-tables:
+
+شاخص ها، واژه نامه ها و جدول ها
+================================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :doc:`glossary`
