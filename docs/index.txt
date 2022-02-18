@@ -1,5 +1,3 @@
-.. title:: Django documentation
-
 .. _django-documentation:
 
 =============
@@ -174,7 +172,7 @@
 * **For designers (برای طراحان) :**
   :doc:`Language overview <ref/templates/language>` (بررسی اجمالی زبان قالب در جنگو) |
   :doc:`Built-in tags and filters <ref/templates/builtins>` (تگ ها و فیلتر های داخلی جنگو) |
-  :doc:`Humanization <ref/contrib/humanize>` (انسان سازی :help:`مجموعه از از فیلترهای جنگو که برای انسانی تر کردن دیتاها به کار میروند`)
+  :doc:`Humanization <ref/contrib/humanize>` (انسان سازی :help:`مجموعه از از فیلترهای جنگو که برای قابل فهم کردن دیتاها به کار میروند`)
 
 * **For programmers (برای برنامه نویسان) :**
   :doc:`Template API <ref/templates/api>` (API لایه قالب در جنگو :help:`توضیحات لایه قالب به صورت فنی و نحوه کار و گسترش آن`) |

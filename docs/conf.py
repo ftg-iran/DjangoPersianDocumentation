@@ -175,10 +175,10 @@ html_theme_path = ["_theme"]
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-html_title = 'Django 3.2 Persian documentation'
+html_title = 'مستندات جنگو ۳.۲'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-html_short_title = 'Django 3.2 documentation'
+# html_short_title = ''
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
