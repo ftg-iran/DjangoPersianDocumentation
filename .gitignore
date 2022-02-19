@@ -1,4 +1,4 @@
 django-docs/
 local-docs/
-env/
+venv/
 .code/
