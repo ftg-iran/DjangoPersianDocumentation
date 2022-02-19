@@ -1,60 +1,58 @@
 <p align="center">
   <img src="https://i.ibb.co/bbhqvJf/image.jpg" alt="DjPrDoc" width="30%">
-  <p align="center">
-  <b>
-    Django Persian Documentation 
-   </b>
-  </p>
   <hr>
 </p>
 
-### FAQ:
-- What exactly is this project?
-  - This project is Persian translation of Django documentation.
-- Which version of Django is the documentation for?
-  - Currently Django 3.2.
-- How I can help this project?
-  - This project requires translation and front design for pages. Your knowledge in these fields will help the project. 
-- Do I need to know Sphinx to contribute?
-  - For translation you only need to replace the translated lines in the files and it doesn't require knowing the Sphinx at all, but for designing you need very little knowledge in Sphinx to change the design of pages, and understanding the mechanism doesn't require background knowledge and in this level it's very simple.
-- Is the project available online?
-  - No, at the moment, the project is under development, and only the offline project can be used. After the development of each general part, the project will be available online.
+### توضیحات پروژه:
+- مستندات مربوط به کدام نسخه جنگو میباشند؟
+  - درحال حاضر نسخه ۳.۲
+- آیا مشارکت در پروژه نیازی به دانستن sphinx دارد؟
+  - برای ترجمه شما تنها باید متن انگلیسی را به فارسی تغییر دهید و این موضوع در کل هیچ ارتباطی با درک و فهم sphinx ندارد، اما دانستن آن خالی از لطف نیست.
+- آیا این پروژه به صورت انلاین در دسترس است؟
+  - پروژه فعلا درحال توسعه میباشد و پس از تکمیل بخش های کلی آن به صورت آنلاین در دسترس قرار میگیرد.
 
-### Basic and simple project information:
-  - The documentation is based on the latest LTS version of Django, which is currently **[3.2](https://github.com/django/django/tree/stable/3.2.x)** and this project is a translation of the docs that exist **[Here](https://docs.djangoproject.com/en/3.2/)**.
-The full content of the documentation can also be viewed **[Here](https://docs.djangoproject.com/en/3.2/contents/)**  
-  
-  - **Steps to get things ready:**  
-    * First of all, download this repo through the Git or this **[link](https://github.com/amirilf/DjangoPersianDocumentation/archive/refs/heads/main.zip)**
-    * To work with it, you need to download Django 3.2 repository, which can be downloaded through this **[link](https://github.com/django/django/archive/refs/heads/stable/3.2.x.zip)** (It's about 14.3 MB, make sure you've downloaded version 3.2 of the repository).
+### شروع کار با پروژه:
+  - مستندات درحال حاضر برمبنای آخرین ورژن LTS جنگو یعنی **[نسخه ۳.۲](https://github.com/django/django/tree/stable/3.2.x)** میباشند و این پروژه ترجمه مستنداتی است 
+که در **[اینجا](https://docs.djangoproject.com/en/3.2/)** قابل مشاهده میباشد.
 
-    * In the Django 3.2 repository folder, rename the `docs` folder to `django-docs` and copy that to the project folder which is `DjangoPersianDocumentation` (if you downloaded this repo via the link, there is probably a branch name at the end of the folder name, which you can change it to `DjangoPersianDocumentation` or continue anyway).
-    * You no longer need the Django 3.2 repository folder so you can delete it (we only needed the `docs` folder)
-    * Generally, we have a `django-docs` and `local-docs` folders in our project, the first one contains the original files of Django documentation and the second one is the result of changes of our project. So by default these values are placed in the `local-project-creator.py` and `.gitignore` files. If you want to change their names (it's recommended not to change their names), you must also change the names in the `local-project-creator.py` and `.gitignore` files.
-    * Our `local-docs` folder hasn't been created yet, and we need to merge the latest update of our project (`docs`) to `django-docs` then we can work with it. So just run the `local-project-creator.py` module to create `local-docs`. Note that the default values in this file are `django-docs`,`docs` and `local-docs`. 
-    * After running the `local-project-creator.py`, the project layout should look like:
-      * DjangoPersianDocumentation  
-        |- django-docs/ (ignored by .gitignore)  
-        |- docs/  
-        |- local-docs/ (ignored by .gitignore)  
-        |- .gitignore  
-        |- local-project-creator.py  
-        |- README.md  
-        |- requirements.txt  
-        |- ...
-    * To work with documentation, you must install the Sphinx requirements. So first create your virtual environment and activate it (**[See how to do it](https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/)**, It's recommended to name your virtual environment `venv`), and then install the project requirements with `pip install -r requirements.txt` command.
+  - مراحل ایجاد پروژه:
+    * این مخزن را از طریق گیت یا از این **[لینک](https://github.com/amirilf/DjangoPersianDocumentation/archive/refs/heads/main.zip)** دانلود کنید.
+    * جنگو ۳.۲ را از این **[لینک](https://github.com/django/django/archive/refs/heads/stable/3.2.x.zip)** دانلود کنید (تقریبا ۱۴مگ).
+    * بعد از دانلود پوشه جنگو ۳.۲ را باز کنید و نام پوشه ‍‍‍‍‍‍‍`docs` را به `django-docs` تغییر دهید.
+    * پوشه `django-docs` را در پوشه این پروژه که نام ان ‍‍‍‍`DjangoPersianDocumentation` میباشد کپی کنید (اگر این پروژه را از طریق لینک دانلود کرده باشید احتمالا نام برنچ به پایان آن اضافه شده است که میتوانید در صورت لزوم نام آن را به ‍‍`DjangoPersianDocumentation` تغییر دهید یا به همین شکل ادامه دهید).
+    * به صورت کلی ما در پروژه ۲ پوشه جدید به نام های `django-docs` و `local-docs` داریم که اولین مورد، پوشه مستندات رسمی خود جنگو و دومین مورد، پوشه ای شامل آخرین تغییرات پروژه(‍‍`docs`) به روی مستندات خود جنگو(‍`django-docs`) میباشد. به صورت پیشفرض این اسامی در فایل های `local-project-creator.py` و `.gitignore` قرار داده شده اند و در صورت تغییر نام ها باید این مقادیر در دو فایل دوباره ست شوند.
+    * پوشه `local-docs`، هنوز ایجاد نشده است و باید آخرین تغییرات پروژه را به روی مستندات جنگو اعمال کنیم. برای اینکار ماژول `local-project-creator.py` را ران کنید تا این فایل ایجاد شود.
+    * بعد از انجام مراحل، ساختار پروژه باید چیزی شبیه زیر باشد:
+<span style="text-align: left; direction: ltr;" >
+ 
+    * DjangoPersianDocumentation
+      | django-docs/ (ignored by .gitignore)
+      | docs/
+      | local-docs/ (ignored by .gitignore)
+      | .gitignore
+      | local-project-creator.py
+      | README.md
+      | requirements.txt
+      | translations-status.md
+      | ...
 
-    * After doing the steps above, just enter the `local-docs` folder, run the `make.bat html` (or `make html`) command to create html files from raw files. After a while, you can see that a folder called `_build` has been created. Inside that folder, you can see the `html` folder, which contains the project html files.
-    * Just open index.html and see the result.
+</span>
 
-### How to contribute?
-  * After making changes in `local-docs` files, just run the `make.bat html` (or `make html`) command to merge changes and see the new result again.
-  * Finally, you have to put the edited files with the same path structure in the `docs` folder.
-  * If you decide to contribute, be sure to look at the about page in project.
 
+  - نصب پیش نیازها:
+    * برای کار با پروژه ابتدا باید پیش نیازهای پروژه را نصب کنید. برای اینکار ابتدا محیط مجازی خود را ایجاد کنید (**[آموزش نحوه ایجاد محیط مجازی](https://uoa-eresearch.github.io/eresearch-cookbook/recipe/2014/11/26/python-virtual-env/)**). پس از فعالسازی محیط مجازی با دستور `pip install -r requirements.txt` پیش نیازهای پروژه را نصب کنید.  
+
+  - کار با پروژه:
+    * بعد از انجام مراحل بالا تنها کافیست وارد پوشه `local-docs` شوید و دستور `make.bat html` (یا `make html`) را برای ایجاد فایل های html از فایل های خام اجرا کنید. پس از مدتی پوشه ای به نام `_build` ایجاد خواهد شد که درون آن پوشه ای به نام `html` قرار دارد که شامل تمام فایل های html پروژه میباشد.
+    * برای دیدن مستندات کافیست فایل `index.html` را باز کنید و نتیجه را مشاهده کنید.     
+
+### نحوه مشارکت در پروژه:
+  * پس از بررسی **[این فایل](translations-status.md)** ، بخش مورد نظر خود را در گروه اعلام کنید تا از ترجمه همزمان یک صفحه توسط چندنفر جلوگیری شود. پس از آن کافیست تغییرات را در فایل های تکست ایجاد کنید و هربار برای دیدن نتایج از دستور `make.bat html` (یا `make html`) استفاده کنید.
+  * در آخر پس از ایجاد تغییرات لازم، فایل ادیت شده را با همان آدرس نسبت به پوشه `local-docs` در پوژه `docs` قرار دهید و تغییرات را ارسال کنید.
+  * بهتر است قبل از شروع ترجمه، بعد از ایجاد فایل های html مستندات، به فایل about در مستندات نگاهی بیندازید.
 <br>
 
-**Telegram group : https://t.me/PersianDjangoDocumentation**
+**گروه تلگرام : https://t.me/PersianDjangoDocumentation**
 <br>
 
-Have a nice day ♥️
+روز خوبی داشته باشید♥️
