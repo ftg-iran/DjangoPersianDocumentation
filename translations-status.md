@@ -13,9 +13,9 @@
 |:---:|:---|:---:|:---:|:---:|
 | 1 | [contents](https://docs.djangoproject.com/en/3.2/contents) | amir khorasani | :green_circle: | 0 |
 | 2 | [index](https://docs.djangoproject.com/en/3.2/index) | amir khorasani | :green_circle: | 0 |
-| 3 | [intro/index](https://docs.djangoproject.com/en/3.2/intro/index) | نامشخص | :red_circle: | 0 |
-| 4 | [intro/overview](https://docs.djangoproject.com/en/3.2/intro/overview) | نامشخص | :red_circle: | 0 |
-| 5 | [intro/install](https://docs.djangoproject.com/en/3.2/intro/install) | نامشخص | :red_circle: | 0 |
+| 3 | [intro/index](https://docs.djangoproject.com/en/3.2/intro/index) | Soghum | :yellow_circle: | 0 |
+| 4 | [intro/overview](https://docs.djangoproject.com/en/3.2/intro/overview) | Soghum | :yellow_circle: | 0 |
+| 5 | [intro/install](https://docs.djangoproject.com/en/3.2/intro/install) | Soghum | :yellow_circle: | 0 |
 | 6 | [intro/tutorial01](https://docs.djangoproject.com/en/3.2/intro/tutorial01) | نامشخص | :red_circle: | 0 |
 | 7 | [intro/tutorial02](https://docs.djangoproject.com/en/3.2/intro/tutorial02) | نامشخص | :red_circle: | 0 |
 | 8 | [intro/tutorial03](https://docs.djangoproject.com/en/3.2/intro/tutorial03) | نامشخص | :red_circle: | 0 |
@@ -47,11 +47,11 @@
 | 34 | [topics/http/index](https://docs.djangoproject.com/en/3.2/topics/http/index) | نامشخص | :red_circle: | 0 |
 | 35 | [topics/http/urls](https://docs.djangoproject.com/en/3.2/topics/http/urls) | نامشخص | :red_circle: | 0 |
 | 36 | [topics/http/views](https://docs.djangoproject.com/en/3.2/topics/http/views) | نامشخص | :red_circle: | 0 |
-| 37 | [topics/http/decorators](https://docs.djangoproject.com/en/3.2/topics/http/decorators) | نامشخص | :red_circle: | 0 |
-| 38 | [topics/http/file-uploads](https://docs.djangoproject.com/en/3.2/topics/http/file-uploads) | نامشخص | :red_circle: | 0 |
-| 39 | [topics/http/shortcuts](https://docs.djangoproject.com/en/3.2/topics/http/shortcuts) | نامشخص | :red_circle: | 0 |
-| 40 | [topics/http/generic-views](https://docs.djangoproject.com/en/3.2/topics/http/generic-views) | نامشخص | :red_circle: | 0 |
-| 41 | [topics/http/middleware](https://docs.djangoproject.com/en/3.2/topics/http/middleware) | نامشخص | :red_circle: | 0 |
+| 37 | [topics/http/decorators](https://docs.djangoproject.com/en/3.2/topics/http/decorators) | esmaeil kazemi | :yellow_circle: | 0 |
+| 38 | [topics/http/file-uploads](https://docs.djangoproject.com/en/3.2/topics/http/file-uploads) | esmaeil kazemi | :yellow_circle: | 0 |
+| 39 | [topics/http/shortcuts](https://docs.djangoproject.com/en/3.2/topics/http/shortcuts) | esmaeil kazemi | :yellow_circle: | 0 |
+| 40 | [topics/http/generic-views](https://docs.djangoproject.com/en/3.2/topics/http/generic-views) | esmaeil kazemi | :yellow_circle: | 0 |
+| 41 | [topics/http/middleware](https://docs.djangoproject.com/en/3.2/topics/http/middleware) | esmaeil kazemi | :yellow_circle: | 0 |
 | 42 | [topics/http/sessions](https://docs.djangoproject.com/en/3.2/topics/http/sessions) | نامشخص | :red_circle: | 0 |
 | 43 | [topics/forms/index](https://docs.djangoproject.com/en/3.2/topics/forms/index) | نامشخص | :red_circle: | 0 |
 | 44 | [topics/forms/formsets](https://docs.djangoproject.com/en/3.2/topics/forms/formsets) | نامشخص | :red_circle: | 0 |
