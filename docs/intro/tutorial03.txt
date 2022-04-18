@@ -1,0 +1,414 @@
+.. _first-app-part3:
+
+=====================================
+نوشتن اولین برنامه جنگو، قسمت سوم
+=====================================
+
+این آموزش پس از گذراندن :doc:`آموزش قسمت 2 </intro/tutorial02>` شروع می شود.
+در این آموزش قرار است وب اپلیکیشن نظرسنجی را ادامه داده و روی ساخت interface های عمومی به نام "views" تمرکز کنیم.
+
+.. admonition:: از کجا کمک بگیرم:
+
+    اگر در طول این آموزش با مشکل مواجه شدید، لطفا به بخش :doc:`Getting Help</faq/help>` قسمت FAQ مراجعه کنید.
+
+مرور اجمالی
+============
+
+یک view نوعی صفحه وب در برنامه های جنگو است که بطور کلی عملکرد خاصی را ارائه می دهد
+و دارای یک الگوی خاص است.
+به عنوان مثال در یک برنامه وبلاگ، ممکن است view های زیر را داشته باشیم:
+
+* صفحه اصلی وبلاگ -- معمولا آخرین ورودی ها را نمایش می دهد.
+
+* صفحه "جزییات" ورود -- صفحه پیوند دائمی برای یک ورودی
+
+* صفحه آرشیو مبتنی بر سال -- تمام ماه هارا با ورودی های سال های معین نشان می دهد.
+
+* صفحه آرشیو مبتنی بر ماه -- تمام روز ها را با ورودی ماه معین نمایش می دهد.
+
+* صفحه بایگانی مبتنی بر روز -- همه ورودی هارا در روز معین نمایش می دهد.
+
+* نظر دهی -- به ارسال نظرات به یک ورودی داده شده رسیدگی می شود.
+
+در برنامه نظر سنجی خود، ما چهار view زیر را داریم:
+
+* صفحه ای برای سوال -- چند مورد از آخرین سوالات را نمایش می دهد.
+
+* صفحه "جزییات" سوالات -- جهت نمایش متن سوال، با فرمی برای نظر سنجی
+
+* صفحه "نتایج" سوالات -- نتایج یک سوال بخصوص را نمایش می دهد.
+
+* عملیات نظرسنجی -- به رای دادن برای یک انتخاب خاص در یک سوال خاص رسیدگی می کند.
+
+در جنگو صفحات وب و سایر محتواها، توسط view ها ارائه می شود.
+هر view با یک تابع پایتون (یا متد، در مورد view های مبتنی بر کلاس) نشان داده می شوند.
+جنگو با بررسی URL درخواستی (بطور دقیق بخشی از URL بعد از نام دامنه) یک نمای را انتخاب می کند.
+
+
+حال در زمان خود در وب ممکن است با قشنگی هایی مانند ``ME2/Sites/dirmod.htm?sid=&type=gen&mod=Core+Pages&gid=A6CD4967199A42D9B65B1B`` برخورد کرده باشید.
+خوشحال خواهید شد که بدانید جنگو به ما امکان *الگو های URL* بسیار قشنگ تر از آن را می دهد. 
+
+الگوی URL شکل کلی یک URL است - برای مثال: ``/newsarchive/<year>/<month>/``
+
+جنگو برای رسیدن از یک URL به یک view، از آنچه به عنوان view شناخته می شود استفاده می کند.
+یک URLconf الگوهای URL را به view ها نگاشت می کند.
+
+این آموزش دستور العمل های اولیه استفاده از URLconfs را ارائه می دهد و می توانید برای اطلاعات بیشتر به :doc:`/topics/http/urls` مراجعه کنید.
+
+نوشتن view های بیشتر
+=====================
+
+حال بیایید چند view دیگر به ``polls/views.py`` اصافه کنیم. این دیدگاه ها کمی متفاوت هستند، زیرا استدلال می کنند که:
+
+.. code-block:: python
+    :caption: polls/views.py
+
+    def detail(request, question_id):
+        return HttpResponse("You're looking at question %s." % question_id)
+
+    def results(request, question_id):
+        response = "You're looking at the results of question %s."
+        return HttpResponse(response % question_id)
+
+    def vote(request, question_id):
+        return HttpResponse("You're voting on question %s." % question_id)
+
+
+این view های جدید را به ماژول ``polls.urls`` با فراخوانی متد :func:`~django.urls.path` به یکدیگر متصل کنید:
+
+.. code-block:: python
+    :caption: polls/urls.py
+
+    from django.urls import path
+
+    from . import views
+
+    urlpatterns = [
+        # ex: /polls/
+        path('', views.index, name='index'),
+        # ex: /polls/5/
+        path('<int:question_id>/', views.detail, name='detail'),
+        # ex: /polls/5/results/
+        path('<int:question_id>/results/', views.results, name='results'),
+        # ex: /polls/5/vote/
+        path('<int:question_id>/vote/', views.vote, name='vote'),
+    ]
+
+نگاهی به مرورگر خود در مسیر "/polls/34/" بیندازید.
+متد ``detail()`` را اجرا کنید و هر شناسه ای را که در URL قرار می دهید، نمایش بدهید.
+برای دسترسی به "/polls/34/results/" و "/polls/34/vote/" تلاش کنید. اینها نتایج جایگاه دار صفحات نظر سنجی و رای گیری را نشان می دهند.
+
+وقتی کسی صفحه ای را از وبسایت شما درخواست می کند، مثلا "/polls/34/" جنگو ماژول ``mysite.urls`` را بارگیری می کند.
+زیرا با تنظیم :setting:`ROOT_URLCONF` به آن اشاره می شود.
+متغیری به نام ``urlpatterns`` را پیدا می کند و و الگو را به ترتیب طی می کند
+پس از یافتن مورد مطابق، در ``'polls/'`` متن مطابق با (``"polls/"``) را حذف می کند و متن باقیمانده را به 'polls.urls' می فرستد.
+قسمت URLconf برای پردازش های بیشتر است. در آنجا با ``'<int:question_id>/'`` مطابقت دارد و در نتیجه به نمای ``detail()`` فراخوانی می شود.
+مانند مورد زیر::
+
+    detail(request=<HttpRequest object>, question_id=34)
+
+قسمت ``question_id=34`` از ``<int:question_id>`` آمده است. استفاده از براکت زاویه دار بخشی از URL را "captures" می کند و آن را به عنوان 
+آرگومان کلیدی به تابع view ارسال می کند.
+قسمت ``question_id`` از رشته، نامی را که برای شناسایی الگوی منطبق استفاده می شود، تعریف می کند.
+و قست ``int`` مبدلی است که تعیین می کند چه الگوهایی باید با این قسمت از مسیر URL مطابقت داشته باشند.
+علامت (``:``) مبدل و نام الگو را از هم جدا می کند.
+
+نماهایی بنویسید که کاری را انجام می دهند
+==========================================
+
+هر نما مسئول انجام یکی از دو کار است: برگرداندن شی :class:`~django.http.HttpResponse` حاوی محتوای صفحه درخواستی یا 
+ایجاد استثناهایی مانند :exc:`~django.http.Http404` . بقیه موارد به عهده شماست.
+
+نمای شما قادر خواهد بود سوابق را از پایگاه داده بخواند یا نه.
+می تواند از یک سیستم قالب آماده مانند جنگو -- یا سیستم قالب پایتون شخص ثالث -- استفاده کند یا نه.
+می تواند یک فایل PDF تولید کند، XML را خروجی دهد، یک فایل ZIP در پرواز ایجاد کند، هر چیزی که می خواهید
+در واقع با استفاده از هر کتابخانه پایتون که می خواهید.
+
+تمام چیزی که جنگو نیاز دارد کلاس :class:`~django.http.HttpResponse` است. یا یک استثنا.
+
+از آنجاییکه راحت است، بیاییداز ... پایگاه داده خود جنگو استفاده کنیم که در ... پوشش دادیم.
+در اینجا یک ضربه در نمای جدید ... وجود دارد که آخرین سوالات نظرسنجی را در سیستم نشان می دهد
+که با کاما از یکدیگر جدا شده اند، بر اساس تاریخ انتشار:
+
+.. code-block:: python
+    :caption: polls/views.py
+
+    from django.http import HttpResponse
+
+    from .models import Question
+
+
+    def index(request):
+        latest_question_list = Question.objects.order_by('-pub_date')[:5]
+        output = ', '.join([q.question_text for q in latest_question_list])
+        return HttpResponse(output)
+
+    # Leave the rest of the views (detail, results, vote) unchanged
+
+با این حال، مشکلی در اینجا وجود دارد: طراحی صفحه در نمای سخت کدگذاری شده است. اگر می خواهید ظاهر صفحه را تغییر دهید، باید این کد پایتون را ویرایش کنید.
+پس بیایید از سیستم قالب جنگو برای جدا کردن طرح از پایتون با ایجاد قالبی استفاده کنیم که view بتواند از آن استفاده کند.
+
+ابتدا یک دایرکتوری به نام ``templates`` در دایرکتوری ``polls`` خود ایجاد کنید.
+جنگو در آنجا به دنبال الگوها می گردد.
+
+تنظیمات :setting:`TEMPLATES` پروژه شما توضیح می دهد که جنگو چگونه قالب هارا بارگیری و رندر می کند.
+فایل تنظیمات پیش فرض بک اند ``DjangoTemplates`` را پیکربندی می کند که گزینه :setting:`APP_DIRS <TEMPLATES-APP_DIRS>` روی ``True`` تنظیم شده است.
+طبق قرارداد ``DjangoTemplates`` به دنبال یک زیر شاخه "templates" در هر یک از :setting:`INSTALLED_APPS` می گردد.
+
+در دایرکتوری ``templates`` که به تازگی ایجاد کردید، دایرکتوری دیگری به نام ``polls`` ایجاد کنید و در آن فایلی به نام ``index.html`` ایجاد کنید.
+به عبارت دیگر، الگوی شما باید در ``polls/templates/polls/index.html`` باشد.
+به دلیل نحوه عملکرد بارگذار الگوی ``app_directories`` همانطور که در بالا توضیح داده شد، می توانید به این الگو در جنگو
+به عنوان ``polls/index.html`` مراجعه کنید.
+
+.. admonition:: فضای نام قالب
+
+    اکنون *ممکن* است بتوانیم قالب های خود را مستقیما در ``polls/templates`` قرار دهیم
+    (بجای ایجاد زیر شاخه ``polls`` دیگر)
+    اما در واقع ایده بدی است. جنگو اولین قالبی را که پیدا می کند، و اگر شما یک الگو با همین نام
+    در یک برنامه *متفاوت* داشته باشید، جنگو نمی تواند بین آنها تمایز قائل شود.
+    اما باید بتوانیم جنگو را به سمت نطقه مناسب هدایت کنیم و بهترین راه برای اطمینان از این امر
+    استفاده از *فضای نام* آنها است.
+    یعنی با قرار دادن آن الگو ها در پوشه ی *دیگر* که برای خود برنامه نام گذاری شده است.
+
+کد زیر را در آن قالب قرار دهید:
+
+.. code-block:: html+django
+    :caption: polls/templates/polls/index.html
+
+    {% if latest_question_list %}
+        <ul>
+        {% for question in latest_question_list %}
+            <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No polls are available.</p>
+    {% endif %}
+
+.. admonition:: توجه
+
+    برای کوتاه کردن آموزش همه ی نمونه های قالب از HTML ناقص استفاده می کنند.
+    در پروژه های خود شما باید از `complete HTML documents`__ استفاده کنید.
+
+__ https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started#anatomy_of_an_html_document
+
+اکنون بیایید برای استفاده از قالب نمای ``index`` را در ``polls/views.py`` بروزرسانی کنیم:
+
+.. code-block:: python
+    :caption: polls/views.py
+
+    from django.http import HttpResponse
+    from django.template import loader
+
+    from .models import Question
+
+
+    def index(request):
+        latest_question_list = Question.objects.order_by('-pub_date')[:5]
+        template = loader.get_template('polls/index.html')
+        context = {
+            'latest_question_list': latest_question_list,
+        }
+        return HttpResponse(template.render(context, request))
+
+کدی که قالب را بارگذاری می کند ... صدا زدیم که در یک متن پاس داده می شود.
+متن یک فرهنگ لغت نگاشت قالب نام متغیر ها به اشیاء پایتون است.
+
+صفحه را با نشان دادن مرورگر خود روی ... بارگیری کنید.
+و باید یک bullet لیست حاوی سوال "What's up" از :doc:`Tutorial 2
+</intro/tutorial02>` مشاهده کنید.
+لینک به صفحه جزییات سوال اشاره دارد.
+
+میانبر: :func:`~django.shortcuts.render`
+--------------------------------------------
+
+این یک اصطلاح بسیار رایج است که یک الگو را بارگیری می کند، یک متن را پر می کند
+و یک شی ... را با نتیجه الگوی  ارائه شده برمیگرداند.
+جنگو یک میانبر ارائه می دهد. در اینجا نمای کامل ... است که بازنویسی شده است.
+
+.. code-block:: python
+    :caption: polls/views.py
+
+    from django.shortcuts import render
+
+    from .models import Question
+
+
+    def index(request):
+        latest_question_list = Question.objects.order_by('-pub_date')[:5]
+        context = {'latest_question_list': latest_question_list}
+        return render(request, 'polls/index.html', context)
+
+توجه داشته باشید که وقتی این کار را در همه ی نماها انجام دادیم، دیگر نیازی به وارد کردن :mod:`~django.template.loader` و :class:`~django.http.HttpResponse` نداریم.
+(شما می خواهید ``HttpResponse`` را نگه دارید اگر هنوز روش های خرد برای  ``detail`` و ``results`` و ``vote`` را داشته باشید)
+
+تابع :func:`~django.shortcuts.render` شی درخواست را به عنوان اولین آرگومان، نام الگو را به عنوان دومین آرگومان
+و دیکشنری را به عنوان آرگومان سوم اختیاری خود می گیرد.
+یک شی :class:`~django.http.HttpResponse` از الگوی ارائه شده با زمینه داده شده را بر میگرداند.
+
+بالا آوردن خطای 404
+===================
+
+اکنون، بیایید به نمای جزئیات سؤال بپردازیم -- صفحه ای که متن سؤال را برای یک نظرسنجی مشخص نشان می دهد.
+این نما است:
+
+.. code-block:: python
+    :caption: polls/views.py
+
+    from django.http import Http404
+    from django.shortcuts import render
+
+    from .models import Question
+    # ...
+    def detail(request, question_id):
+        try:
+            question = Question.objects.get(pk=question_id)
+        except Question.DoesNotExist:
+            raise Http404("Question does not exist")
+        return render(request, 'polls/detail.html', {'question': question})
+
+مفهومی جدید: اگر سوالی با شناسه درخواستی وجود نداشته باشد، نمای استثنا :exc:`~django.http.Http404` را ایجاد می کند.
+
+ما کمی بعد در مورد آنچه که می توانید در قالب ... قرار دهید بحث خواهیم کرد.
+اما اگر میخواهید به سرعت مثال بالا کار کند، فایلی حاوی فقط:
+
+.. code-block:: html+django
+    :caption: polls/templates/polls/detail.html
+
+    {{ question }}
+
+فعلا کار شمارا راه می اندازد.
+
+میانبر: :func:`~django.shortcuts.get_object_or_404`
+-------------------------------------------------------
+
+یک اصطلاح بسیار رایج برای استفاده از :meth:`~django.db.models.query.QuerySet.get` است.
+و اگر شی وجود نداشت :exc:`~django.http.Http404` را بالا بیاورد. جنگو یک میانبر ارائه می دهد. در اینجا نمای ``detail()`` است که بازنویسی شده است:
+
+.. code-block:: python
+    :caption: polls/views.py
+
+    from django.shortcuts import get_object_or_404, render
+
+    from .models import Question
+    # ...
+    def detail(request, question_id):
+        question = get_object_or_404(Question, pk=question_id)
+        return render(request, 'polls/detail.html', {'question': question})
+
+تابع :func:`~django.shortcuts.get_object_or_404` یک مدل جنگو را به عنوان اولین آرگومان خود و تعدادی دلخواه آرگومان کلیدی دریافت می کند. 
+که به :meth:`~django.db.models.query.QuerySet.get` ارسال می کند.
+اگر شی وجود نداشته باشد، :exc:`~django.http.Http404` را نمایش می دهد.
+
+.. admonition:: فلسفه
+
+    چرا از یک تابع کمکی :func:`~django.shortcuts.get_object_or_404` استفاده می کنیم بجای اینکه بطور خودکار 
+    استثناهای :exc:`~django.core.exceptions.ObjectDoesNotExist` را در سطح بالاتر دریافت کنیم،
+    یا API مدل :exc:`~django.http.Http404` را افزایش دهیم بجای :exc:`~django.core.exceptions.ObjectDoesNotExist` .
+
+    زیرا این لایه مدل را به لایه view متصل می کند.
+    یکی از مهمترین اهداف طراحی جنگو حفظ loose coupling است.
+    برخی از coupling های کنترل شده در ماژول :mod:`django.shortcuts` معرفی شده است.
+
+همچنین یک تابع :func:`~django.shortcuts.get_list_or_404` نیز وجود دارد که دقیقا مانند :func:`~django.shortcuts.get_object_or_404` کار می کند -- بجز استفاده از :meth:`~django.db.models.query.QuerySet.filter` بجای :meth:`~django.db.models.query.QuerySet.get` .
+اگر لیست خالی باشد، خطای ... را بالا می آورد.
+
+از سیستم قالب استفاده کنید
+===========================
+
+بازگشت به نمای ``detail()`` برای برنامه نظرسنجی ما، با توجه به متغیر زمینه ``question`` در اینجا
+الگوی ``polls/detail.html`` ممکن است شبیه باشد:
+
+.. code-block:: html+django
+    :caption: polls/templates/polls/detail.html
+
+    <h1>{{ question.question_text }}</h1>
+    <ul>
+    {% for choice in question.choice_set.all %}
+        <li>{{ choice.choice_text }}</li>
+    {% endfor %}
+    </ul>
+
+سیستم قالب از نحوه ی جستجوی نقطه برای دسترسی به ویژگی های متغیر استفاده می کند.
+در مثال ``{{ question.question_text }}`` ابتدا جنگو جستجوی فرهنگ لغت را روی شی ``question`` انجام می دهد.
+در صورت عدم موفقیت، جستجوی ویژگی را امتحان می کند -- که در این مورد کار می کند.
+اگر جستجوی ویژگی ناموفق بود، جستجوی فهرست به فهرست را امتحان می کند.
+
+فراخوانی متد در حلقه :ttag:`{% for %}<for>` انجام می شود:
+``question.choice_set.all`` به عنوان کد پایتون ``question.choice_set.all()`` تفسیر می شود،
+که تکرار پذیری از اشیاء ``Choice`` را بر می گرداند و برای استفاده در تگ :ttag:`{% for %}<for>` مناسب است.
+
+برای اطلاعات بیشتر در مورد الگوها به :doc:`template guide </topics/templates>` راهنمای قالب مراجعه کنید.
+
+حذف URL های کدگذاری شده در قالب ها
+====================================
+
+به یاد داشته باشید، زمانی که ما لینک یک سوال را در قالب ``polls/index.html`` نوشتیم، پیوند تا حدی به این صورت هاردکد شده است:
+
+.. code-block:: html+django
+
+    <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+
+مشکل این رویکرد هاردکد این است که تغییر URL ها در پروژه هایی با قالب های 
+زیاد چالش بر انگیز  می شود. با این حال، از آنجاییکه شما آرگومان نام را در توابع :func:`~django.urls.path` در 
+ماژول ``polls.urls`` تعریف کردید، می توانید با استفاده از تگ ``{% url %}`` الگو آن را پیکر بندی کنید:
+
+.. code-block:: html+django
+
+    <li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li>
+
+روش کار این است که به دنبال تعریف URL همانطور که در ماژول ``polls.urls`` مشخص شده است بگردید.
+شما می توانید دقیقا جایی که نام URL در 'detail' زیر تعریف شده است::
+
+    ...
+    # the 'name' value as called by the {% url %} template tag
+    path('<int:question_id>/', views.detail, name='detail'),
+    ...
+
+اگر می خواهید نمای جزییات نظرسنجی URL را تغییر دهید، شاید
+به چیزی مانند ``polls/specifics/12/`` بجای انجام آن در الگو  (یا الگوها) آن را در ``polls/urls.py`` تغییر دهید::
+
+    ...
+    # added the word 'specifics'
+    path('specifics/<int:question_id>/', views.detail, name='detail'),
+    ...
+
+فضای نام نامهای URL
+=====================
+
+پروژه آموزشی فقط یک برنامه دارد، ``polls``. در پروژه های واقعی جنگو، ممکن است پنج، ده، بیست برنامه یا بیشتر وجود داشته باشد. جنگو چگونه نام URL ها را بین آنها متمایز می کند؟ برای مثال، برنامه ``polls`` دارای نمای ``detail`` است، و همچنین ممکن است یک برنامه در همان پروژه که برای یک وبلاگ است. چگونه می توان آن را طوری ساخت که جنگو بداند هنگام استفاده از تگ الگوی ``{% url %}`` کدام نمای برنامه را برای یک URL ایجاد کند؟
+
+پاسخ این است که فضاهای نام را به URLconf خود اضافه کنید.
+در فایل ``polls/urls.py`` پیش بروید و یک ``app_name`` اضافه کنید تا فضای نام برنامه را تنظیم کنید:
+
+.. code-block:: python
+    :caption: polls/urls.py
+
+    from django.urls import path
+
+    from . import views
+
+    app_name = 'polls'
+    urlpatterns = [
+        path('', views.index, name='index'),
+        path('<int:question_id>/', views.detail, name='detail'),
+        path('<int:question_id>/results/', views.results, name='results'),
+        path('<int:question_id>/vote/', views.vote, name='vote'),
+    ]
+
+اکنون الگوی ``polls/index.html`` خود را از قسمت زیر تغییر دهید:
+
+.. code-block:: html+django
+    :caption: polls/templates/polls/index.html
+
+    <li><a href="{% url 'detail' question.id %}">{{ question.question_text }}</a></li>
+
+برای اشاره به نمای جزییات فضای نام داریم:
+
+.. code-block:: html+django
+    :caption: polls/templates/polls/index.html
+
+    <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+
+وقتی به نوشتن نماها تسلط پیدا کردید، :doc:`قسمت چهارم این آموزش
+</intro/tutorial04>` را بخوانید تا اصول اولیه پردازش فرم و نماهای عمومی را بیاموزید.

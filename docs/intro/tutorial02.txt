@@ -1,0 +1,644 @@
+.. _first-app-part2:
+
+=====================================
+نوشتن اولین برنامه جنگو، قسمت دوم
+=====================================
+
+این آموزش ادامه آموزش :doc:`قسمت اول </intro/tutorial01>` است.
+ما قرار است پایگاه داده را راه اندازی کنیم، اولین مدلت خودت را بسازی و و یک معرفی سریع
+با بخش مدیریت وبسایت جنگو که بطور خودکار ایجاد می شود داشته باشیم.
+
+.. admonition:: از کجا کمک بگیرم:
+
+    اگر در انجام این آموزش با مشکل مواجه هستید، لطفا به بخش :doc:`Getting Help</faq/help>` در قسمت سوالات متداول مراجعه کنید.
+
+
+راه اندازی پایگاه داده
+=======================
+
+ابتدا :file:`mysite/settings.py` را باز کنید.
+این یک ماژول معمولی پایتون با متغیر های سطح ماژول که تنظیمات جنگو را نشان می دهد.
+
+بطور پیش فرض، پیکربندی از SQLite استفاده می کند. اگر در کار با پایگاه داده ها تازه کار هستید،
+یا تنها علاقمند به آزمایش کار با جنگو هستید، این گزینه پیش فرض ساده ترین انتخاب است.
+SQLite در پایتون گنجانده است بنابرین برای پشتیبانی از پایگاه داده خود نیازی به نصب هیچ چیز دیگری نخواهید داشت.
+با این حال هنگام شروع اولین پروژه واقعی خود، ممکن است بخواهید از یک پایگاه داده مقیاس پذیر تر
+مانند PostgreSQL استفاده کنید تا از دردسر های تغییر پایگاه داده در مسیر جلوگیری کنید.
+
+اگر می خواهید از پایگاه داده دیگری استفاده کنید، از بخش :ref:`database
+bindings <database-installation>` پایگاه داده مناسب را نصب کنید و کلید های زیر را
+در مورد :setting:`DATABASES` ``'default'`` تغییر دهید تا با تنظیمات پایگاه داده شما مطابقت داشته باشد:
+
+* :setting:`ENGINE <DATABASE-ENGINE>` -- یا
+  ``'django.db.backends.sqlite3'``,
+  ``'django.db.backends.postgresql'``,
+  ``'django.db.backends.mysql'``, یا
+  ``'django.db.backends.oracle'``.بقیه ی تنظیمات در قسمت :ref:`also available
+  <third-party-notes>` هستند.
+
+* :setting:`NAME` -- نام پایگاه داده شماست. اگر شما از SQLite ،استفاده می کنید
+  پایگاه داده یک فایل در کامپیوتر شما خواهد بود.  
+  در این صورت :setting:`NAME`  
+  باید مسیر مطلق کامل از جمله نام فایل، آن باشد.  
+  مقدار پیش فرض ``BASE_DIR / 'db.sqlite3'`` فایل را در فهرست شما ذخیره می کند.  
+
+اگر از SQLite به عنوان پایگاه داده خود استفاده نمی کنید، تنظیمات اضافی 
+مانند :setting:`USER` ، :setting:`PASSWORD` و :setting:`HOST` باید اضافه شود.
+برای جزئیات بیشتر به به مستندات مرجع در بخش :setting:`DATABASES` مراجعه کنید.
+
+.. admonition:: برای پایگاه داده های غیر از SQLite
+
+    اگر علاوه بر SQLite از یک پایگاه داده دیگر استفاده می کنید، مطمئن شوید که تا این مرحله یک پایگاه داده 
+    ایجاد کرده اید. این کار را با دستور "``CREATE DATABASE database_name;``" در خط فرمان پایگاه داده خود انجام دهید.
+
+    همچنین مطمئن شوید که کاربر پایگاه داده ارائه شده در :file:`mysite/settings.py` دارای دسترسی "ایجاد پایگاه داده" است.
+    این قابلیت امکان ایجاد پایگاه داده بصورت خودکار :ref:`test database <the-test-database>` را فراهم می کند که در آموزش بعدی مورد نیاز خواهد بود.
+
+    اگر شما از SQLite استفاده می کنید، نیاز ندارید چیزی را از قبل آماده کنید. فایلهای 
+    پایگاه داده بصورت خودکار در صورت نیاز ساخته می شوند.
+
+وقتی در حال ویرایش :file:`mysite/settings.py` هستید، :setting:`TIME_ZONE` را روی منطقه زمانی خود تنظیم کنید.
+
+Also, note the :setting:`INSTALLED_APPS` setting at the top of the file. That
+holds the names of all Django applications that are activated in this Django
+instance. Apps can be used in multiple projects, and you can package and
+distribute them for use by others in their projects.
+همچنین به تنظیمات ... در بالای فایل توجه کنید.
+نام تمام برنامه های جنگو که در این پروژه فعال شده اند را در خود جای می دهد.
+برنامه‌ها را می‌توان در چندین پروژه استفاده کرد و می‌توانید آن‌ها را برای استفاده دیگران در پروژه‌هایشان بسته‌بندی و توزیع کنید.
+
+بطور پیش فرض :setting:`INSTALLED_APPS` حاوی برنامه های زیر است که همه آنها با جنگو ارائه می شوند:
+
+* :mod:`django.contrib.admin` -- وبسایت مدیریت. به زودی از آن استفاده خواهید کرد.
+
+* :mod:`django.contrib.auth` -- سیستم احراز هویت.
+
+* :mod:`django.contrib.contenttypes` -- فریم ورکی برای انواع محتوا در وبسایت.
+
+* :mod:`django.contrib.sessions` -- فریم ورک session .
+
+* :mod:`django.contrib.messages` -- فریم ورک پیام رسان.
+
+* :mod:`django.contrib.staticfiles` -- فریم ورکی برای مدیریت فایل های ایستا.
+
+این برنامه‌ها به‌طور پیش‌فرض به‌عنوان سهولت برای موارد رایج گنجانده شده‌اند.
+
+برخی از این برنامه ها حداقل از یک جدول پایگاه داده استفاده می کنند،
+بنابراین قبل از استفاده از آنها باید جداول را در پایگاه داده ایجاد کنیم.
+برای انجام این کار، دستور زیر را اجرا کنید:
+
+.. console::
+
+    $ python manage.py migrate
+
+دستور :djadmin:`migrate` به تنظیمات :setting:`INSTALLED_APPS` نگاه می کند و هر جدول پایگاه داده لازم را با توجه به تنظیمات پایگاه داده در 
+فایل ... و انتقال پایگاه داده ارسال شده با برنامه ای که (بعدا به آن خواهیم پرداخت) ایجاد می کند.
+برای هر migration ای که اعمال می شود یک پیام خواهید دید.
+اگر علاقمند هستید، خط فرمان پایگاه داده را باز کرده و ``\dt`` را برای (PostgreSQL) تایپ کنید.
+یا ``SHOW TABLES;`` (MariaDB, MySQL),
+``.schema`` را در (SQLite) انتخاب کرده و یا
+``SELECT TABLE_NAME FROM USER_TABLES;`` را در (Oracle) جداول ساخته شده توسط جنگو را ببینید.
+
+.. admonition:: برای سبک کار ها
+
+  همانطور که در بالا گفتیم، برنامه های پیش فرض برای موارد رایج گنجانده اند، اما همه به آنها نیاز ندارند.
+  اگر به هیچ یک یا همه ی آنها نیاز ندارید، قبل از اجرای دستور :djadmin:`migrate` خط (های) مورد نظر را
+  از :setting:`INSTALLED_APPS` حذف کرده یا کامنت کنید.
+  دستور :djadmin:`migrate` فقط برای برنامه های موجود در :setting:`INSTALLED_APPS` عملیات migrate را انجام می دهد.
+
+
+ساخت مدل ها
+===============
+
+حال مدلتان را پیاده سازی خواهیم کرد. لزوما طرح کلی پایگاه داده به همراه فراداده های اضافی.
+
+.. admonition:: فلسفه مدل
+
+   مدل یک سورس مستقل از اطلاعات دیتاهای شماست. 
+   شامل فیلد ها و رفتار های ضروری از داده های شماست که میخواهید در پایگاه داده مرتب کنید.
+   جنگو :ref:`DRY Principle <dry>` را دنبال می کند.
+   در واقع هدف اصلی تعریف یک مدل از دیتا در یک مکان است تا بطور خودکار بقیه ی چیز ها از آن مشتق شوند.
+
+   این شامل مهاجرت ها نیز می شود - برای مثال، برخلاف Ruby On Rails، مهاجرت ها کاملا از فایل مدل های شما مشتق شده اند.
+   و اساسا تاریخچه ای هستند که جنگو می تواند برای بروزرسانی طرح پایگاه داده شما برای مطابقت با مدل های فعلی شما، آن را مرور کند.
+
+
+در برنامه نظرسنجی خود دو مدل ایجاد خواهیم کرد: ``Question`` و ``Choice``.
+یک ``Question`` دارای یک سوال و تاریخ انتشار است. ``Choice`` دو قسمت دارد: متن انتخاب و تعداد آرا.
+هر ``Question`` با ``Choice`` مرتبط است.
+
+این مفاهیم توسط کلاسهای پایتون نمایش داده می شوند. فایل :file:`polls/models.py` را ویرایش کنید تا به شکل زیر باشد:
+
+.. code-block:: python
+    :caption: polls/models.py
+
+    from django.db import models
+
+
+    class Question(models.Model):
+        question_text = models.CharField(max_length=200)
+        pub_date = models.DateTimeField('date published')
+
+
+    class Choice(models.Model):
+        question = models.ForeignKey(Question, on_delete=models.CASCADE)
+        choice_text = models.CharField(max_length=200)
+        votes = models.IntegerField(default=0)
+
+در اینجا هر مدل با یک کلاس نمایش داده می شود که زیر-کلاس :class:`django.db.models.Model` است.
+هر مدل دارای تعداد متغیر کلاس است که هر کدام نشان دهنده ی یک فیلد پایگاه داده در مدل است.
+
+هر فیلد با نمونه ای از کلاس :class:`~django.db.models.Field` نشان داده می شود. به عنوان مثال :class:`~django.db.models.CharField` برای فیلد های
+کاراکتر و :class:`~django.db.models.DateTimeField` برای زمان ها و تاریخ است.
+در واقع این به جنگو می گوید که هر فیلد چه نوع داده ای را در خود جای می دهد.
+
+نام هر نمونه :class:`~django.db.models.Field` به عنوان مثال (``question_text`` or ``pub_date``) نام فیلد است که در فرمت ماشین سازگار است.
+شما از این مقدار در کد پایتون خود استفاده خواهید کرد و پایگاه داده شما از آن به عنوان نام ستون استفاده خواهد کرد.
+
+می توانید از یک آرگومان موقعیتی دلخواه برای کلاس :class:`~django.db.models.Field` برای تعیین یک نام خوانا برای انسان استفاده کنید.
+این در چند بخش درون جنگو استفاده می شود، و به عنوان مستند دو چندان می شود.
+اگر این فیلد ارائه نشده باشد، جنگو از نامی خوانا برای ماشین استفاده خواهد کرد.
+در مثال ما فقط یک نام خوانا توسط انسان برای ``Question.pub_date`` تعریف کردیم.
+برای همه فیلد های دیگر در این مدل، نام فیلد خوانا توسط ماشین به عنوان نام خوانا توسط انسان کافی است.
+
+برخی از کلاسهای :class:`~django.db.models.Field` دارای آرگومان های لازم هستند. برای مثال :class:`~django.db.models.CharField` باید را باید به آن خصوصیت :attr:`~django.db.models.CharField.max_length` بدهید.
+همانطور که جلوتر خواهیم دید، نه تنها در شمای پایگاه داده، بلکه در اعتبار سنجی نیز استفاده می شود.
+
+یک :class:`~django.db.models.Field` همچنین می تواند آرگومان های اختیاری مختلفی داشته باشد. در این مورد، مقدار :attr:`~django.db.models.Field.default` خصوصیت ``votes`` را روی 0 قرار می دهیم.
+
+در نهایت یک رابطه با استفاده از :class:`~django.db.models.ForeignKey` تعریف می شود.
+این به جنگو می گوید که هر ``Choice`` به یک ``Question`` مرتبط است.
+جنگو از تمام روابط رایج پایگاه داده پشتیبانی می کند. چند به یک، چند به چند و یک به یک.
+
+
+فعالسازی مدل
+=================
+
+این کد کوچک مدل به جنگو اطلاعات زیادی را می دهد. با آن جنگو قادر است:
+
+* برای این برنامه یک شمای پایگاه داده (عبارت ``CREATE TABLE``) بسازد.
+
+* یک API دسترسی به پایگاه داده برای دسترسی به ``Question`` به ``Choice`` بسازد.
+
+ولی در ابتدا ما باید به پروژه خود بگوییم که برنامه ``polls`` نصب شده است.
+
+.. admonition:: فلسفه برنامه ها
+
+    برنامه های جنگو "قابل اتصال" هستند: بدین معنی که شما می توانید از این برنامه در چندین پروژه استفاده کنید، 
+    و می توانید برنامه هارا توزیع کنید، زیرا لازم نیست آنها به نصب جنگو مرتبط باشند.
+
+برای گنجاندن برنامه در پروژه خود باید یک مرجع به کلاس پیکربندی آن در تنظیمات :setting:`INSTALLED_APPS` اضافه کنیم.
+کلاس ``PollsConfig`` در فایل :file:`polls/apps.py` قرار دارد. بنابرین مسیر نقطه چین آن ``'polls.apps.PollsConfig'`` است.
+فایل :file:`mysite/settings.py` را ویرایش کنید و آن مسیر نقطه چین را به تنظیمات :setting:`INSTALLED_APPS` اضافه کنید.
+تنظیمات به این صورت خواهد بود:
+
+.. code-block:: python
+    :caption: mysite/settings.py
+
+    INSTALLED_APPS = [
+        'polls.apps.PollsConfig',
+        'django.contrib.admin',
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'django.contrib.staticfiles',
+    ]
+
+حال پروژه جنگو می داند که برنامه ... را نیز شامل می شود. بیایید دستور دیگری را اجرا کنیم:
+
+.. console::
+
+    $ python manage.py makemigrations polls
+
+شما باید چیزی شبیه به زیر ببینید:
+
+.. code-block:: text
+
+    Migrations for 'polls':
+      polls/migrations/0001_initial.py
+        - Create model Question
+        - Create model Choice
+
+با اجرای ``makemigrations`` به جنگو می گویید که تغییراتی در مدل های خود ایجاد کرده اید (در این مورد مدل های جدید ایجاد کرده اید)
+و می خواهید تغییرات به عنوان یک *migration* ذخیره شود.
+
+مهاجرت ها نحوه ی ذخیره سازی تغییرات در مدل های شما (و در نتیجه طرح پایگاه داده شما) توسط جنگو است.
+آنها فایل های روی دیسک هستند.
+در صورت تمایل می توانید مهاجرت مدل خود را بخوانید.
+این فایل ``polls/migrations/0001_initial.py`` است.
+نگران نباشید. از شما انتظار نمی رود هر بار که جنگو یکی را می سازد، آنها را بخوانید، اما آنها به گونه ای
+طراحی شده اند که در صورتی که بخواهید بصورت دستی نحوه ی تغییر جنگو را تغییر بدهید، قابل ویرایش باشد.
+
+دستوری وجود دارد که مهاجرت هارا برای شما اجرا می کند و و شمای پایگاه داده شما را به طور خودکار مدیریت می کند.
+این دستور :djadmin:`migrate` است و هم اکنون به آن خواهیم رسید، اما ابتدا بیایید ببینیم که این مهاجرت
+چه SQL ای را اجرا می کند. دستور :djadmin:`sqlmigrate` نام مهاجرت هارا می گیرد و SQL آنهارا بر می گرداند:
+
+.. console::
+
+    $ python manage.py sqlmigrate polls 0001
+
+با اجرای دستور شما باید چیزی شبیه زیر مشاهده کنید (ما آن را برای خوانایی، دوباره به SQL فرمت کردیم)
+
+.. code-block:: sql
+
+    BEGIN;
+    --
+    -- Create model Question
+    --
+    CREATE TABLE "polls_question" (
+        "id" serial NOT NULL PRIMARY KEY,
+        "question_text" varchar(200) NOT NULL,
+        "pub_date" timestamp with time zone NOT NULL
+    );
+    --
+    -- Create model Choice
+    --
+    CREATE TABLE "polls_choice" (
+        "id" serial NOT NULL PRIMARY KEY,
+        "choice_text" varchar(200) NOT NULL,
+        "votes" integer NOT NULL,
+        "question_id" integer NOT NULL
+    );
+    ALTER TABLE "polls_choice"
+      ADD CONSTRAINT "polls_choice_question_id_c5b4b260_fk_polls_question_id"
+        FOREIGN KEY ("question_id")
+        REFERENCES "polls_question" ("id")
+        DEFERRABLE INITIALLY DEFERRED;
+    CREATE INDEX "polls_choice_question_id_c5b4b260" ON "polls_choice" ("question_id");
+
+    COMMIT;
+
+به موارد زیر توجه کنید:
+
+* خروجی دقیقا بسته به پایگاه داده ای است که استفاده می کنید متفاوت است. مثال بالا برای PostgreSQL ایجاد شده است.
+
+* نام های جدول به طور خودکار با ترکیب نام برنامه (``polls``) و نام کوچک مدل ``question`` و ``choice`` ایجاد می شوند. (شما می توانید این رفتار را بازنویسی کنید.)
+
+* کلید های اصلی (ID ها) بطور خودکار اضافه می شوند. (شما می توانید این را نیز بازنویسی کنید.)
+
+* طبق قرارداد جنگو جنگو ... را به نام فیلد کلید خارجی اضافه می کند.(بله شما می توانید این مورد را نیز بازنویسی کنید.)
+
+* رابطه کلید خارجی توسط یک محدودیت ``FOREIGN KEY`` آشکار می شود. نگران قطعات ``DEFERRABLE`` نباشید. این به PostgreSQL می گوید که تا پایان تراکنش کلید خارجی را اجرا نکند.
+
+* این برای پایگاه داده ای که استفاده می کنیم تنظیم شده است. بنابرین انواع فیلد های خاص پایگاه داده مانند، ``auto_increment`` در (MySQL) و ```serial``` در (PostgreSQL) یا ``integer primary key autoincrement`` در (SQLite) مدیریت می شوند. برای شما بطور خودکار همین امر در مورد نقل قول از نام فیلد ها صدق می کند. برای مثال با استفاده از تک کوتیشن یا جفت کوتیشن.
+
+دستور :djadmin:`sqlmigrate` در واقع مهاجرت را در پایگاه داده شما اجرا نمی کند، در عوض آن را روی صفحه چاپ می کند تا
+بتوانید آنچه را که SQL Django فکر می کند لازم است ببینید.
+برای بررسی اینکه جنگو قرار است  چه کاری انجام دهد یا اینکه مدیران پایگاه داده ای دارید که برای تغییرات به اسکریپت های SQL نیاز دارد مفید است.
+
+اگر علاقه مند هستید، می توانید :djadmin:`python manage.py check <check>` را نیز اجرا کنید.
+این دستور در پروژه شما بدون انجام مهاجرت یا حتی دست زدنی به پایگاه داده، هر گونه مشکلی را بررسی می کند.
+
+اکنون دوباره :djadmin:`migrate` را اجرا کنید تا جدول مدل را در پایگاه داده خود ایجاد کنید:
+
+.. console::
+
+    $ python manage.py migrate
+    Operations to perform:
+      Apply all migrations: admin, auth, contenttypes, polls, sessions
+    Running migrations:
+      Rendering model states... DONE
+      Applying polls.0001_initial... OK
+
+دستور :djadmin:`migrate` تمام مهاجرت هایی را که اعمال نشده اند را می گیرد (جنگو با استفاده از یک جدول خاص در پایگاه داده شما به نام ``django_migrations`` هر کدام از آنهارا ردیابی می کند) و
+آنهارا در پایگاه داده شما اجرا می کند. بطور لازم، همگام سازی تغییراتی که در مدل های خود با طرح موجود در پایگاه داده ایجاد کرده اید
+
+مهاجرت‌ها بسیار قدرتمند هستند و به شما امکان می‌دهند در طول زمان، همانطور که پروژه خود را توسعه می‌دهید،
+مدل‌های خود را تغییر دهید، بدون نیاز به حذف پایگاه داده یا جداول خود و ایجاد موارد جدید - در ارتقای پایگاه داده شما به صورت زنده،
+بدون از دست دادن داده، تخصص دارد. ما آنها را در بخش بعدی آموزش با عمق بیشتری پوشش خواهیم داد،
+اما در حال حاضر، راهنمای سه مرحله ای برای ایجاد تغییرات مدل را به خاطر بسپارید:
+
+* مدل خود را (در فایل ``models.py``) تغییر دهید.
+* دستور :djadmin:`python manage.py makemigrations <makemigrations>` را اجرا کنید تا برای آن تغییرات مهاجرت ایجاد کنید.
+* دستور :djadmin:`python manage.py migrate <migrate>` را اجرا کنید تا تغییرات در پایگاه داده اعمال شود.
+
+دلیل اینکه دستورات جداگانه ای برای ایجاد و اعمال مهاجرت وجود دارد این است که
+شما مهاجرت ها را به سیستم کنترل نسخه خود انجام می دهید و
+آنها را با برنامه خود ارسال می کنید. آنها نه تنها توسعه شما را آسان تر می کنند،
+بلکه توسط توسعه دهندگان دیگر و در مرحله تولید نیز قابل استفاده هستند.
+
+برای اطلاعات کامل در مورد آنچه که ابزار ``manage.py`` می تواند انجام دهد، :doc:`django-admin documentation </ref/django-admin>` را مطالعه کنید.
+
+
+کار با API ها
+====================
+
+حال بیایید وارد shell پایتون شویم و با API رایگانی که جنگو در اختیار ما قرار می دهد کار کنیم.
+برای فراخوانی shell پایتون، این دستور را استفاده کنید:
+
+.. console::
+
+    $ python manage.py shell
+
+ما از این بجای نوشتن "python" استفاده می کنیم، زیرا فایل :file:`manage.py` می تواند environment variable را تنظیم کند :envvar:`DJANGO_SETTINGS_MODULE` 
+که به جنگو مسیر import پایتون را به فایل :file:`mysite/settings.py` شما می دهد.
+
+زمانیکه در shell هستید، در :doc:`database API </topics/db/queries>` بگردید::
+
+    >>> from polls.models import Choice, Question  # Import the model classes we just wrote.
+
+    # No questions are in the system yet.
+    >>> Question.objects.all()
+    <QuerySet []>
+
+    # Create a new Question.
+    # Support for time zones is enabled in the default settings file, so
+    # Django expects a datetime with tzinfo for pub_date. Use timezone.now()
+    # instead of datetime.datetime.now() and it will do the right thing.
+    >>> from django.utils import timezone
+    >>> q = Question(question_text="What's new?", pub_date=timezone.now())
+
+    # Save the object into the database. You have to call save() explicitly.
+    >>> q.save()
+
+    # Now it has an ID.
+    >>> q.id
+    1
+
+    # Access model field values via Python attributes.
+    >>> q.question_text
+    "What's new?"
+    >>> q.pub_date
+    datetime.datetime(2012, 2, 26, 13, 0, 0, 775217, tzinfo=<UTC>)
+
+    # Change values by changing the attributes, then calling save().
+    >>> q.question_text = "What's up?"
+    >>> q.save()
+
+    # objects.all() displays all the questions in the database.
+    >>> Question.objects.all()
+    <QuerySet [<Question: Question object (1)>]>
+
+یک دقیقه صبر کنید. ``<Question: Question object (1)>`` یک نمایش مفید از این object نیست.
+بیایید با ویرایش مدل ``Question`` که (در فایل ``polls/models.py``) است و افزودن یک متد :meth:`~django.db.models.Model.__str__` به هر دو موجودیت ``Question`` و ``Choice`` آن را برطرف کنیم.
+
+.. code-block:: python
+    :caption: polls/models.py
+
+    from django.db import models
+
+    class Question(models.Model):
+        # ...
+        def __str__(self):
+            return self.question_text
+
+    class Choice(models.Model):
+        # ...
+        def __str__(self):
+            return self.choice_text
+
+مهم است که متد های ... را به مدل های خود اضافه کنید، نه تنها برای راحتی خود در هنگام مواجه خود با خط فرمان، بلکه همچتین به این دلیل که نمایش object ها در تمام قسمت های جنگو بطور خودکار بخش مدیریت را تولید می کند.
+
+.. _tutorial02-import-timezone:
+
+بیایید یک متد شخصی سازی شده به آن اضافه کنیم:
+
+.. code-block:: python
+    :caption: polls/models.py
+
+    import datetime
+
+    from django.db import models
+    from django.utils import timezone
+
+
+    class Question(models.Model):
+        # ...
+        def was_published_recently(self):
+            return self.pub_date >= timezone.now() - datetime.timedelta(days=1)
+
+با افزودن ``import datetime`` و ``from django.utils import timezone`` برای ارجاع به ماژول استاندارد :mod:`datetime` پایتون و ابزار های مرتبط به منطقه زمانی جنگو در این بخش :mod:`django.utils.timezone` دقت کنید.
+اگر با مدیریت منطقه زمانی در پایتون آشنایی ندارید می توانید در :doc:`time zone support docs </topics/i18n/timezones>` اطلاعات بیشتری کسب کنید.
+
+تغییرات را ذخیره کنید و با اجرای دوباره ``python manage.py shell`` یک shell جدید پایتون ایحاد کنید::
+
+    >>> from polls.models import Choice, Question
+
+    # Make sure our __str__() addition worked.
+    >>> Question.objects.all()
+    <QuerySet [<Question: What's up?>]>
+
+    # Django provides a rich database lookup API that's entirely driven by
+    # keyword arguments.
+    >>> Question.objects.filter(id=1)
+    <QuerySet [<Question: What's up?>]>
+    >>> Question.objects.filter(question_text__startswith='What')
+    <QuerySet [<Question: What's up?>]>
+
+    # Get the question that was published this year.
+    >>> from django.utils import timezone
+    >>> current_year = timezone.now().year
+    >>> Question.objects.get(pub_date__year=current_year)
+    <Question: What's up?>
+
+    # Request an ID that doesn't exist, this will raise an exception.
+    >>> Question.objects.get(id=2)
+    Traceback (most recent call last):
+        ...
+    DoesNotExist: Question matching query does not exist.
+
+    # Lookup by a primary key is the most common case, so Django provides a
+    # shortcut for primary-key exact lookups.
+    # The following is identical to Question.objects.get(id=1).
+    >>> Question.objects.get(pk=1)
+    <Question: What's up?>
+
+    # Make sure our custom method worked.
+    >>> q = Question.objects.get(pk=1)
+    >>> q.was_published_recently()
+    True
+
+    # Give the Question a couple of Choices. The create call constructs a new
+    # Choice object, does the INSERT statement, adds the choice to the set
+    # of available choices and returns the new Choice object. Django creates
+    # a set to hold the "other side" of a ForeignKey relation
+    # (e.g. a question's choice) which can be accessed via the API.
+    >>> q = Question.objects.get(pk=1)
+
+    # Display any choices from the related object set -- none so far.
+    >>> q.choice_set.all()
+    <QuerySet []>
+
+    # Create three choices.
+    >>> q.choice_set.create(choice_text='Not much', votes=0)
+    <Choice: Not much>
+    >>> q.choice_set.create(choice_text='The sky', votes=0)
+    <Choice: The sky>
+    >>> c = q.choice_set.create(choice_text='Just hacking again', votes=0)
+
+    # Choice objects have API access to their related Question objects.
+    >>> c.question
+    <Question: What's up?>
+
+    # And vice versa: Question objects get access to Choice objects.
+    >>> q.choice_set.all()
+    <QuerySet [<Choice: Not much>, <Choice: The sky>, <Choice: Just hacking again>]>
+    >>> q.choice_set.count()
+    3
+
+    # The API automatically follows relationships as far as you need.
+    # Use double underscores to separate relationships.
+    # This works as many levels deep as you want; there's no limit.
+    # Find all Choices for any question whose pub_date is in this year
+    # (reusing the 'current_year' variable we created above).
+    >>> Choice.objects.filter(question__pub_date__year=current_year)
+    <QuerySet [<Choice: Not much>, <Choice: The sky>, <Choice: Just hacking again>]>
+
+    # Let's delete one of the choices. Use delete() for that.
+    >>> c = q.choice_set.filter(choice_text__startswith='Just hacking')
+    >>> c.delete()
+
+برای اطلاعات بیشتر در مورد روابط مدل، به :doc:`Accessing related objects
+</ref/models/relations>` مراجعه کنید.
+برای اطلاعات بیشتر در مورد نحوه استفاده از double underscores ها برای جستجو فیلد از طریق API به :ref:`Field lookups <field-lookups-intro>` مراجعه کنید.
+برای جزییات کامل در مورد API پایگاه داده به :doc:`Database API reference
+</topics/db/queries>` مراجعه کنید.
+
+
+معرفی صفحه مدیریت در جنگو
+============================
+
+.. admonition:: فلسفه مدیریت وبسایت
+    ایجاد سایت‌های مدیریت برای کارمندان یا مشتریان شما برای افزودن، تغییر و حذف محتوا کار خسته‌کننده‌ای استکه به خلاقیت زیادی نیاز ندارد.
+    به همین دلیل، جنگو به طور کامل ایجاد رابط های مدیریت برای مدل ها را خودکار می کند.
+
+    جنگو در یک محیط اتاق خبر نوشته شده است، با جدایی بسیار واضح بین "ناشر محتوا" و سایت "عمومی".
+    مدیران سایت از این سیستم برای اضافه کردن اخبار، رویدادها، امتیازات ورزشی و غیره استفاده می کنند و آن محتوا در سایت عمومی نمایش داده می شود.
+    جنگو مشکل ایجاد یک رابط یکپارچه برای مدیران سایت برای ویرایش محتوا را حل می کند.
+
+    ادمین برای استفاده بازدیدکنندگان سایت در نظر گرفته نشده است. صرفا برای مدیران سایت است.
+
+
+ساخت کاربر به عنوان مدیر
+-------------------------
+
+ابتدا باید کاربری ایجاد کنیم که بتواند وارد سایت مدیریت شود. دستور زیر را اجرا کنید:
+
+.. console::
+
+    $ python manage.py createsuperuser
+
+نام کاربری و رمز عبور دلخواه خود را وارد کنید.
+
+.. code-block:: text
+
+    Username: admin
+
+سپس از شما خواسته می شود که آدرس ایمیل مورد نظر خود را وارد کنید:
+
+.. code-block:: text
+
+    Email address: admin@example.com
+
+مرحله آخر این است که رمز عبور خود را وارد کنید.
+از شما خواسته می شود رمز عبور خود را دو بار وارد کنید، بار دوم برای تایید رمز وارد شده اول است.
+
+.. code-block:: text
+
+    Password: **********
+    Password (again): *********
+    Superuser created successfully.
+
+
+شروع راه اندازی سرور توسعه
+----------------------------
+
+سایت ادمین جنگو به صورت پیش فرض فعال است.
+بیایید سرور توسعه را راه اندازی کنیم و آن را بررسی کنیم.
+
+اگر سرور در حال اجرا نیست آن را به این صورت راه اندازی کنید:
+
+.. console::
+
+    $ python manage.py runserver
+
+اکنون مرورگر وب خود را باز کنید و به "/admin/" در دامنه ی محلی خود بروید. به عنوان مثال http://127.0.0.1:8000/admin/
+حال شما باید صفحه ورود مدیریت وبسایت را ببینید:
+
+.. image:: _images/admin01.png
+   :alt: Django admin login screen
+
+از آنجاییکه ... بطور پیش فرض روشن است، اگر ... را تنظیم کنید،
+صفحه ورود به سیستم به زبان داده شده نمایش داده می شود (اگر جنگو ترجمه های مناسبی داشته باشد).
+
+ورود به مدیریت وبسایت
+----------------------
+
+حال سعی کنید با حساب superuser که در مراحل قبل ایجاد کردید وارد شوید.
+شما باید صفحه فهرست مدیریت جنگو را ببینید:
+
+.. image:: _images/admin02.png
+   :alt: Django admin index page
+
+شما باید چند نوع محتوای قابل ویرایش ببینید: گروه ها و کاربران.
+آنها توسط :mod:`django.contrib.auth` فریم ورک احراز هویت ارسال شده توسط جنگو، ارائه می شوند.
+
+قابل تغییر کردن برنامه نظرسنجی را در قسمت مدیریت وبسایت
+--------------------------------------------------------
+
+اما برنامه نظرسنجی ما کجاست؟ در صفحه فهرست مدیریت نمایش داده نمی شود.
+
+فقط یک کار دیگر باید انجام دهیم. باید به مدیریت جنگو بگوییم که object های ``Question`` یک رابط مدیریت دارند.
+برای انجام این کار فایل :file:`polls/admin.py` را باز کرده و آن را به شکل زیر ویرایش کنید:
+
+.. code-block:: python
+    :caption: polls/admin.py
+
+    from django.contrib import admin
+
+    from .models import Question
+
+    admin.site.register(Question)
+
+کشف عملکرد رایگان مدیریت
+------------------------------------
+
+اکنون که ``Question`` را ثبت کرده ایم، جنگو می داند که باید در صفحه فهرست مدیریت نمایش داده شود:
+
+.. image:: _images/admin03t.png
+   :alt: Django admin index page, now with polls displayed
+
+روی ``Questions`` کلیک کنید. اکنون برای سؤالات در صفحه ``change list`` هستید.
+این صفحه تمام سوالات موجود در پایگاه داده را نمایش می دهد و به شما امکان می دهد یکی را برای تغییر آن انتخاب کنید. "What's up?" سوالی است که قبلا ایجاد کردیم:
+
+.. image:: _images/admin04t.png
+   :alt: Polls change list page
+
+روی "What's up?" کلیک کرده تا آن را تغییر دهید:
+
+.. image:: _images/admin05t.png
+   :alt: Editing form for question object
+
+موارد که در اینجا قابل تذکر هستند:
+
+* فرم به طور خودکار از مدل ``Question`` تولید می شود.
+
+* انواع مختلف فیلد مدل (:class:`~django.db.models.DateTimeField` و :class:`~django.db.models.CharField`) با ویجت ورودی HTML مناسب مطابقت دارد. هر نوع فیلدی می داند چگونه خود را در مدیریت جنگو نمایش دهد.
+
+هر :class:`~django.db.models.DateTimeField` میانبر های رایگان جاوا اسکریپت دریافت می کنند. تاریخ ها یک میانبر "Today" و تقویم دریافت می کنند و زمان ها میانبر "Now" و یک پنجره popup مناسب که زمان های معمولا وارد شده را فهرست می کند.
+
+قسمت پایین صفحه چند گزینه را در اختیار شما قرار می دهد:
+
+* گزینه Save -- تغییرات را ذخیره می کند و به صفحه تغییرات لیست برای این نوع شی باز می گردد.
+
+* گزینه Save and continue editing -- تغییرات را ذخیره می کند و صفحه مدیریت این شی را دوباره بارگیری می کند.
+
+* گزینه Save and add another -- تغییرات را ذخیره می کند و یک فرم جدید و خالی را برای این نوع شی بارگذاری می کند.
+
+* گزینه Delete -- صفحه تایید حذف را نمایش می دهد.
+
+اگر مقدار "Date published" با زمانی که سوال را در :doc:`آموزش اول </intro/tutorial01>` ایجاد کردید مطابقت نداشت، احتمالا به این معنی است که فراموش کرده اید
+مقدار صحیح را برای :setting:`TIME_ZONE` تنظیم کنید، صفحه را دوباره Refresh کنید و بررسی کنید که مقدار صحیح دوباره بارگذاری می شود.
+
+"تاریخ انتشار" را با کلیک کردن روی میانبرهای "Today" و "Now" تغییر دهید.
+سپس روی "Save and continue editing" کلیک کنید.
+سپس روی "History" در بالا سمت راست کلیک کنید.
+صفحه‌ای را مشاهده می‌کنید که تمام تغییرات ایجاد شده در این شی از طریق ادمین جنگو،
+با مهر زمانی و نام کاربری شخصی که تغییر را انجام داده است را مشاهده می‌کنید:
+
+.. image:: _images/admin06t.png
+   :alt: History page for question object
+
+زمانیکه در کار با API مدل ها مشکلی نداشتید و با مدیریت وبسایت بطور کامل آشنا شدید، :doc:`قسمت سوم این آموزش</intro/tutorial03>` این آموزش را بخوانید
+تا در مورد نحوه افزودن بازدید های بیشتر به برنامه نظرسنجی مان بیاموزید.
