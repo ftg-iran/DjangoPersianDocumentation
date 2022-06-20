@@ -1,180 +1,127 @@
-{% extends "basic/layout.html" %}
-
-{% macro secondnav() %}
-  {% if prev and next %}
-    &laquo; <a href="{{ prev.link|e }}" title="{{ prev.title|e }}">قبلی</a>
-    {{ reldelim2 }}
-    <a href="{{ next.link|e }}" title="{{ next.title|e }}">بعدی</a> &raquo;
-  {% elif prev %}
-    &laquo; <a href="{{ prev.link|e }}" title="{{ prev.title|e }}">قبلی</a>&raquo;
-  {% elif next %}
-    &laquo; <a href="{{ next.link|e }}" title="{{ next.title|e }}">بعدی</a> &raquo;
-  {% else %}
-  <br>
-  {% endif %}
-{% endmacro %}
-
-{% block extrahead %}
-{# When building htmlhelp (CHM format) disable jQuery inclusion, #}
-{# as it causes problems in compiled CHM files.                  #}
-{% if builder != "htmlhelp" %}
-{{ super() }}
+{% extends "basic/layout.html" %} {% macro secondnav() %} {% if prev and next %} &laquo; <a href="{{ prev.link|e }}" title="{{ prev.title|e }}">قبلی</a> {{ reldelim2 }}
+<a href="{{ next.link|e }}" title="{{ next.title|e }}">بعدی</a> &raquo; {% elif prev %} &laquo; <a href="{{ prev.link|e }}" title="{{ prev.title|e }}">قبلی</a>&raquo; {% elif next %} &laquo; <a href="{{ next.link|e }}" title="{{ next.title|e }}">بعدی</a>&raquo;
+{% else %}
+<br> {% endif %} {% endmacro %} {% block extrahead %} {# When building htmlhelp (CHM format) disable jQuery inclusion, #} {# as it causes problems in compiled CHM files. #} {% if builder != "htmlhelp" %} {{ super() }}
 <script src="{{ pathto('templatebuiltins.js', 1) }}"></script>
 <script>
-(function($) {
-    if (!django_template_builtins) {
-       // templatebuiltins.js missing, do nothing.
-       return;
-    }
-    $(document).ready(function() {
-        // Hyperlink Django template tags and filters
-        var base = "{{ pathto('ref/templates/builtins') }}";
-        if (base == "#") {
-            // Special case for builtins.html itself
-            base = "";
+    (function($) {
+        if (!django_template_builtins) {
+            // templatebuiltins.js missing, do nothing.
+            return;
         }
-        // Tags are keywords, class '.k'
-        $("div.highlight\\-html\\+django span.k").each(function(i, elem) {
-             var tagname = $(elem).text();
-             if ($.inArray(tagname, django_template_builtins.ttags) != -1) {
-                 var fragment = tagname.replace(/_/, '-');
-                 $(elem).html("<a href='" + base + "#" + fragment + "'>" + tagname + "</a>");
-             }
+        $(document).ready(function() {
+            // Hyperlink Django template tags and filters
+            var base = "{{ pathto('ref/templates/builtins') }}";
+            if (base == "#") {
+                // Special case for builtins.html itself
+                base = "";
+            }
+            // Tags are keywords, class '.k'
+            $("div.highlight\\-html\\+django span.k").each(function(i, elem) {
+                var tagname = $(elem).text();
+                if ($.inArray(tagname, django_template_builtins.ttags) != -1) {
+                    var fragment = tagname.replace(/_/, '-');
+                    $(elem).html("<a href='" + base + "#" + fragment + "'>" + tagname + "</a>");
+                }
+            });
+            // Filters are functions, class '.nf'
+            $("div.highlight\\-html\\+django span.nf").each(function(i, elem) {
+                var filtername = $(elem).text();
+                if ($.inArray(filtername, django_template_builtins.tfilters) != -1) {
+                    var fragment = filtername.replace(/_/, '-');
+                    $(elem).html("<a href='" + base + "#" + fragment + "'>" + filtername + "</a>");
+                }
+            });
         });
-        // Filters are functions, class '.nf'
-        $("div.highlight\\-html\\+django span.nf").each(function(i, elem) {
-             var filtername = $(elem).text();
-             if ($.inArray(filtername, django_template_builtins.tfilters) != -1) {
-                 var fragment = filtername.replace(/_/, '-');
-                 $(elem).html("<a href='" + base + "#" + fragment + "'>" + filtername + "</a>");
-             }
+    })(jQuery); { %
+        if include_console_assets %
+    }
+    (function($) {
+        $(document).ready(function() {
+            $(".c-tab-unix").on("click", function() {
+                $("section.c-content-unix").show();
+                $("section.c-content-win").hide();
+                $(".c-tab-unix").prop("checked", true);
+            });
+            $(".c-tab-win").on("click", function() {
+                $("section.c-content-win").show();
+                $("section.c-content-unix").hide();
+                $(".c-tab-win").prop("checked", true);
+            });
         });
-    });
-})(jQuery);
-{% if include_console_assets %}
-(function($) {
-    $(document).ready(function() {
-        $(".c-tab-unix").on("click", function() {
-            $("section.c-content-unix").show();
-            $("section.c-content-win").hide();
-            $(".c-tab-unix").prop("checked", true);
-        });
-        $(".c-tab-win").on("click", function() {
-            $("section.c-content-win").show();
-            $("section.c-content-unix").hide();
-            $(".c-tab-win").prop("checked", true);
-        });
-    });
-})(jQuery);
-{% endif %}
+    })(jQuery); { % endif %
+    }
 </script>
-{% endif %}
-{% if include_console_assets %}
-<link rel="stylesheet" href="{{ pathto('_static/console-tabs.css', 1) }}" type="text/css" />
-{% endif %}
-{% endblock %}
-
-{% block document %}
-  <div id="custom-doc" class="{% block bodyclass %}{{ 'yui-t6' if pagename != 'index' and pagename != 'about' else '' }}{% endblock %}">
+{% endif %} {% if include_console_assets %}
+<link rel="stylesheet" href="{{ pathto('_static/console-tabs.css', 1) }}" type="text/css" /> {% endif %} {% endblock %} {% block document %}
+<div id="custom-doc" class="{% block bodyclass %}{{ 'yui-t6' if pagename != 'index' and pagename != 'about' else '' }}{% endblock %}">
     <div id="hd">
-      <h1><a href="{{ pathto('index') }}">مستندات فارسی جنگو ۳.۲</a></h1>
-      <div id="global-nav">
-        {% if pagename == 'index' %}
-          <a title="Home page" class='active' href="{{ pathto('index') }}">خانه</a> {{ reldelim2 }}
-        {% else %}
-          <a title="Home page" href="{{ pathto('index') }}">خانه</a> {{ reldelim2 }}
-        {% endif %}
+        <h1><a href="{{ pathto('index') }}">مستندات فارسی جنگو ۳.۲</a></h1>
+        <div id="global-nav">
+            {% if pagename == 'index' %}
+            <a title="Home page" class='active' href="{{ pathto('index') }}">خانه</a> {{ reldelim2 }} {% else %}
+            <a title="Home page" href="{{ pathto('index') }}">خانه</a> {{ reldelim2 }} {% endif %} {% if pagename == 'contents' %}
+            <a title="Table of contents" class='active' href="{{ pathto('contents') }}">فهرست محتوا</a> {{ reldelim2 }} {% else %}
+            <a title="Table of contents" href="{{ pathto('contents') }}">فهرست محتوا</a> {{ reldelim2 }} {% endif %} {% if pagename == 'genindex' %}
+            <a title="Global index" class='active' href="{{ pathto('genindex') }}">فهرست کلی</a> {{ reldelim2 }} {% else %}
+            <a title="Global index" href="{{ pathto('genindex') }}">فهرست کلی</a> {{ reldelim2 }} {% endif %} {% if pagename == 'py-modindex' %}
+            <a title="Module index" class='active' href="{{ pathto('py-modindex') }}">فهرست ماژول ها</a> {{ reldelim2 }} {% else %}
+            <a title="Module index" href="{{ pathto('py-modindex') }}">فهرست ماژول ها</a> {{ reldelim2 }} {% endif %} {% if pagename == 'about' %}
+            <a title="About" class='active' href="{{ pathto('about') }}">درباره</a> {% else %}
+            <a title="About" href="{{ pathto('about') }}">درباره</a>{{ reldelim2 }}
+            <a title="About" href="https://docs.djangoproject.com/en/3.2/{{ pagename }}">صفحه در مستندات رسمی</a> {% endif %}
 
-        {% if pagename == 'contents' %}
-          <a title="Table of contents" class='active' href="{{ pathto('contents') }}">فهرست محتوا</a> {{ reldelim2 }}
-        {% else %}
-          <a title="Table of contents" href="{{ pathto('contents') }}">فهرست محتوا</a> {{ reldelim2 }}
-        {% endif %}
-
-        {% if pagename == 'genindex' %}
-          <a title="Global index" class='active' href="{{ pathto('genindex') }}">فهرست کلی</a> {{ reldelim2 }}
-        {% else %}
-          <a title="Global index" href="{{ pathto('genindex') }}">فهرست کلی</a> {{ reldelim2 }}
-        {% endif %}
-
-        {% if pagename == 'py-modindex' %}
-          <a title="Module index" class='active' href="{{ pathto('py-modindex') }}">فهرست ماژول ها</a> {{ reldelim2 }}
-        {% else %}
-          <a title="Module index" href="{{ pathto('py-modindex') }}">فهرست ماژول ها</a> {{ reldelim2 }}
-        {% endif %}
-
-        {% if pagename == 'about' %}
-          <a title="About" class='active' href="{{ pathto('about') }}">درباره</a>
-        {% else %}
-          <a title="About" href="{{ pathto('about') }}">درباره</a>{{ reldelim2 }}
-          <a title="About" href="https://docs.djangoproject.com/en/3.2/{{ pagename }}">صفحه در مستندات رسمی</a>
-          {% endif %}
-
-      </div>
-      <div class="nav">{{ secondnav() }}</div>
+        </div>
+        <div class="nav">{{ secondnav() }}</div>
     </div>
 
     <div id="bd">
-      <div id="yui-main">
-        <div class="yui-b">
-          <div class="yui-g" id="{{ pagename|replace('/', '-') }}">
-            {% block body %}{% endblock %}
-          </div>
+        <div id="yui-main">
+            <div class="yui-b">
+                <div class="yui-g" id="{{ pagename|replace('/', '-') }}">
+                    {% block body %}{% endblock %}
+                </div>
+            </div>
         </div>
-      </div>
-      {% block sidebarwrapper %}
-        {% if pagename != 'index' and pagename != 'about' %}
-          <div class="yui-b" id="sidebar">
-            {{ sidebar() }}
-            {%- if last_updated %}
-              <h3>Last update:</h3>
-              <p class="topless">{{ last_updated }}</p>
+        {% block sidebarwrapper %} {% if pagename != 'index' and pagename != 'about' %}
+        <div class="yui-b" id="sidebar">
+            {{ sidebar() }} {%- if last_updated %}
+            <h3>Last update:</h3>
+            <p class="topless">{{ last_updated }}</p>
             {%- endif %}
-          </div>
-        {% endif %}
-      {% endblock %}
+        </div>
+        {% endif %} {% endblock %}
     </div>
 
     <!-- <div id="ft">
       <div class="nav">{{ secondnav() }}</div>
     </div> -->
-    
-  </div>
-{% endblock %}
 
-{% block sidebarrel %}
-  <h3>Browse</h3>
-  <ul>
+</div>
+{% endblock %} {% block sidebarrel %}
+<h3>Browse</h3>
+<ul>
     {% if prev %}
-      <li>Prev: <a href="{{ prev.link }}">{{ prev.title }}</a></li>
+    <li>Prev: <a href="{{ prev.link }}">{{ prev.title }}</a></li>
+    {% endif %} {% if next %}
+    <li>Next: <a href="{{ next.link }}">{{ next.title }}</a></li>
     {% endif %}
-    {% if next %}
-      <li>Next: <a href="{{ next.link }}">{{ next.title }}</a></li>
-    {% endif %}
-  </ul>
-  <h3>You are here:</h3>
-  <ul>
-      <li>
-        <a href="{{ pathto('index') }}">{{ docstitle }}</a>
-        {% for p in parents %}
-          <ul><li><a href="{{ p.link }}">{{ p.title }}</a>
-        {% endfor %}
-        <ul><li>{{ title }}</li></ul>
-        {% for p in parents %}</li></ul>{% endfor %}
-      </li>
-  </ul>
-{% endblock %}
-
-{# Empty some default blocks out #}
-{% block relbar1 %}{% endblock %}
-{% block relbar2 %}{% endblock %}
-{% block sidebar1 %}{% endblock %}
-{% block sidebar2 %}{% endblock %}
-
-{% block footer %}
-{% if pagename != 'about' %}
-  <div id="ft">
-      <a title="Github repository" target="_blank" href="https://github.com/amirilf/PersianDjangoDocumentation">Github repository</a>
-  </div>
-{% endif %}
-{% endblock %}
+</ul>
+<h3>You are here:</h3>
+<ul>
+    <li>
+        <a href="{{ pathto('index') }}">{{ docstitle }}</a> {% for p in parents %}
+        <ul>
+            <li><a href="{{ p.link }}">{{ p.title }}</a> {% endfor %}
+                <ul>
+                    <li>{{ title }}</li>
+                </ul>
+                {% for p in parents %}</li>
+        </ul>{% endfor %}
+    </li>
+</ul>
+{% endblock %} {# Empty some default blocks out #} {% block relbar1 %}{% endblock %} {% block relbar2 %}{% endblock %} {% block sidebar1 %}{% endblock %} {% block sidebar2 %}{% endblock %} {% block footer %} {% if pagename != 'about' %}
+<div id="ft">
+    <a title="Github repository" target="_blank" href="https://github.com/ftg-iran/DjangoPersianDocumentation">Github repository</a>
+</div>
+{% endif %} {% endblock %}
