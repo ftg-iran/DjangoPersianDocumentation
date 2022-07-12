@@ -378,3 +378,18 @@ epub_cover = ('', 'epub-cover.html')
 
 # If false, no index is generated.
 # epub_use_index = True
+
+
+# Translation of admonition titles
+# ================================
+from sphinx import locale
+locale.admonitionlabels['seealso'] = 'همچنین ببینید'
+locale.admonitionlabels['warning'] = 'هشدار'
+locale.admonitionlabels['tip'] = 'نکته'
+locale.admonitionlabels['note'] = 'تبصره'
+locale.admonitionlabels['important'] = 'مهم'
+locale.admonitionlabels['danger'] = 'خطر'
+locale.admonitionlabels['hint'] = 'اشاره'
+locale.admonitionlabels['error'] = 'خطا'
+locale.admonitionlabels['attention'] = 'توجه'
+locale.admonitionlabels['caution'] = 'احتیاط'
