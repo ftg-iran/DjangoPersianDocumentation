@@ -13,7 +13,7 @@
 |:---:|:---|:---:|:---:|:---:|
 | 1 | [contents](https://docs.djangoproject.com/en/3.2/contents) | Amir Khorasani | :green_circle: | 0 |
 | 2 | [index](https://docs.djangoproject.com/en/3.2/index) | Amir Khorasani | :green_circle: | 0 |
-| 3 | [intro/index](https://docs.djangoproject.com/en/3.2/intro/index) | Soghum | :yellow_circle: | 0 |
+| 3 | [intro/index](https://docs.djangoproject.com/en/3.2/intro/index) | Amir Khorasani | :green_circle: | 0 |
 | 4 | [intro/overview](https://docs.djangoproject.com/en/3.2/intro/overview) | Soghum | :yellow_circle: | 0 |
 | 5 | [intro/install](https://docs.djangoproject.com/en/3.2/intro/install) | Soghum | :yellow_circle: | 0 |
 | 6 | [intro/tutorial01](https://docs.djangoproject.com/en/3.2/intro/tutorial01) | مهدی ابراهیمی | :green_circle: | 0 |
