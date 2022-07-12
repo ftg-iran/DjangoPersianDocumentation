@@ -16,9 +16,9 @@
 | 3 | [intro/index](https://docs.djangoproject.com/en/3.2/intro/index) | Soghum | :yellow_circle: | 0 |
 | 4 | [intro/overview](https://docs.djangoproject.com/en/3.2/intro/overview) | Soghum | :yellow_circle: | 0 |
 | 5 | [intro/install](https://docs.djangoproject.com/en/3.2/intro/install) | Soghum | :yellow_circle: | 0 |
-| 6 | [intro/tutorial01](https://docs.djangoproject.com/en/3.2/intro/tutorial01) | مهدی ابراهیمی | :yellow_circle: | 0 |
-| 7 | [intro/tutorial02](https://docs.djangoproject.com/en/3.2/intro/tutorial02) | مهدی ابراهیمی | :yellow_circle: | 0 |
-| 8 | [intro/tutorial03](https://docs.djangoproject.com/en/3.2/intro/tutorial03) | مهدی ابراهیمی | :yellow_circle: | 0 |
+| 6 | [intro/tutorial01](https://docs.djangoproject.com/en/3.2/intro/tutorial01) | مهدی ابراهیمی | :green_circle: | 0 |
+| 7 | [intro/tutorial02](https://docs.djangoproject.com/en/3.2/intro/tutorial02) | مهدی ابراهیمی | :green_circle: | 0 |
+| 8 | [intro/tutorial03](https://docs.djangoproject.com/en/3.2/intro/tutorial03) | مهدی ابراهیمی | :green_circle: | 0 |
 | 9 | [intro/tutorial04](https://docs.djangoproject.com/en/3.2/intro/tutorial04) | Reza Yazdani | :yellow_circle: | 0 |
 | 10 | [intro/tutorial05](https://docs.djangoproject.com/en/3.2/intro/tutorial05) | Reza Yazdani | :yellow_circle: | 0 |
 | 11 | [intro/tutorial06](https://docs.djangoproject.com/en/3.2/intro/tutorial06) | Reza Yazdani | :yellow_circle: | 0 |
