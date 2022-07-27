@@ -61,7 +61,7 @@
 
 |
 
-| گروه تلگرام : https://t.me/PersianDjangoDocumentation
+| گروه تلگرام : https://t.me/DjangoPersianDocumentation
 | ریپو گیتهاب : https://github.com/ftg-iran/DjangoPersianDocumentation
 
 روز خوبی داشته باشین♥️

@@ -19,7 +19,7 @@
 که در **[اینجا](https://docs.djangoproject.com/en/3.2/)** قابل مشاهده میباشد.
 
  ### مراحل ایجاد پروژه:
-- این مخزن را از طریق گیت یا از این **[لینک](https://github.com/amirilf/DjangoPersianDocumentation/archive/refs/heads/main.zip)** دانلود کنید.
+- این مخزن را از طریق گیت یا از این **[لینک](https://github.com/ftg-iran/DjangoPersianDocumentation/archive/refs/heads/main.zip)** دانلود کنید.
 - جنگو ۳.۲ را از این **[لینک](https://github.com/django/django/archive/refs/heads/stable/3.2.x.zip)** دانلود کنید (تقریبا ۱۴مگ).
 - بعد از دانلود پوشه جنگو ۳.۲ را باز کنید و نام پوشه ‍‍‍‍‍‍‍`docs` را به `django-docs` تغییر دهید
 - پوشه `django-docs` را در پوشه این پروژه که نام ان ‍‍‍‍`DjangoPersianDocumentation` میباشد کپی کنید (اگر این پروژه را از طریق لینک دانلود کرده باشید احتمالا نام برنچ به پایان آن اضافه شده است که میتوانید در صورت لزوم نام آن را به ‍‍`DjangoPersianDocumentation` تغییر دهید یا به همین شکل ادامه دهید).
@@ -58,7 +58,7 @@
   * بهتر است قبل از شروع ترجمه، بعد از ایجاد فایل های html مستندات، به فایل about در مستندات نگاهی بیندازید.
 <br>
 
-**گروه تلگرام : https://t.me/PersianDjangoDocumentation**
+**گروه تلگرام : https://t.me/DjangoPersianDocumentation**
 <br>
 
 روز خوبی داشته باشید♥️
